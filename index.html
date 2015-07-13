@@ -7,8 +7,53 @@
 
 
 <p>Interested? Contact danielbrooks20 at gmail dot com</p>
-
 <p>Developing the draft website below</p>
+
+
+ <script>
+
+function Card(name, castingcost1, castingcost2, cardtype, rarity, myranking){
+  this.name=name
+  this.castingcost1=castingcost1
+  this.castingcost2=castingcost2
+  this.cardtype=cardtype
+  this.rarity=rarity
+  this.myranking=myranking
+}
+
+function generate_cardlist(path_to_rankings){
+  <!-- Generate card objects from data file -->
+}
+
+function Pack(cardlist){
+  pack_contents=[]
+  
+  #Define card contents
+  cards_in_pack=0
+  com=0
+  unc=0
+  rare=0
+  mythic=0
+  
+  #figure out if mythic or rare
+  mythic_roll=Math.floor((Math.random() * 121) + 1)
+  if (mythic_roll>15){
+    mythic=1;
+  } else {
+    rare=1
+  }
+  
+  #add cards without duplication
+  #Needs to be implemented
+  
+  }
+  
+  #Add another 120 lines of code
+  
+}
+
+</body>
+</html>
 
 
 <!--
@@ -73,6 +118,3 @@ function makePick()
 </script>
 
 -->
-
-</body>
-</html>
