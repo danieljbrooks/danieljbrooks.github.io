@@ -11,7 +11,7 @@
 
 
  <script>
-
+ 
 function Card(name, castingcost1, castingcost2, cardtype, rarity, myranking){
   this.name=name
   this.castingcost1=castingcost1
@@ -53,6 +53,10 @@ function Pack(cardlist){
 }
 </script>
 
+<p id="demo">Display the result here.</p>
+<!-- test card functionality -->
+
+<script>
 function Card(name, castingcost1, castingcost2, cardtype, rarity, myranking){
   this.name=name
   this.castingcost1=castingcost1
@@ -61,16 +65,12 @@ function Card(name, castingcost1, castingcost2, cardtype, rarity, myranking){
   this.rarity=rarity
   this.myranking=myranking
 }
-
-
-<p id="demo">Display the result here.</p>
-<!-- test card functionality -->
-<script>
 dragonlord_dromoka = Card('dragonlord_dromoka', '4GW', 'none', 'Creature', 'M', 4.9)
 document.getElementById("demo").innerHTML = dragonlord_dromoka.name;
 </script>
 
 <p id="demo2">Display the result here.</p>
+
 <script>
 var person = {firstName:"John", lastName:"Doe"};
 document.getElementById("demo2").innerHTML = person.firstName;
