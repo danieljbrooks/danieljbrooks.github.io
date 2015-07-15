@@ -57,6 +57,8 @@ function Pack(cardlist){
 <p id="demo">Display the result here.</p>
 <!-- test card functionality -->
 
+<img src="/DTK/Dragonlord_Dromoka.png";>
+
 <script>
 function Card(name, castingcost1, castingcost2, cardtype, rarity, myranking){
   this.name=name
@@ -66,8 +68,6 @@ function Card(name, castingcost1, castingcost2, cardtype, rarity, myranking){
   this.rarity=rarity
   this.myranking=myranking
 }
-
-<img src="/DTK/Dragonlord_Dromoka.png";>
 
 dragonlord_dromoka = Card('dragonlord_dromoka', '4GW', 'none', 'Creature', 'M', 4.9)
 document.getElementById("demo").innerHTML = dragonlord_dromoka.name;
