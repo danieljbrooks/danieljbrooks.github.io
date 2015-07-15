@@ -54,6 +54,8 @@ function Pack(cardlist){
 }
 </script>
 
+<p> Behold, pictures of dragons. Check back soon for the draft simulator!</p>
+
 <p id="demo">Display the result here.</p>
 <!-- test card functionality -->
 
@@ -69,7 +71,7 @@ function Card(name, castingcost1, castingcost2, cardtype, rarity, myranking){
   this.myranking=myranking
 }
 
-dragonlord_dromoka = Card('dragonlord_dromoka', '4GW', 'none', 'Creature', 'M', 4.9)
+dragonlord_dromoka = new Card('dragonlord_dromoka', '4GW', 'none', 'Creature', 'M', 4.9)
 document.getElementById("demo").innerHTML = dragonlord_dromoka.name;
 </script>
 <p id="demo2">Display the result here.</p>
