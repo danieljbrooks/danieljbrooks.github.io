@@ -56,7 +56,7 @@ function Pack(card_list){
     card_in_pack=0;
     this.pack_size=this.pack_contents.length;
     for (var i = 0; i < this.pack_size; i++) {
-      if ( new_card.name.localeCompare(pack_contents[i].name) ){
+      if ( new_card.name.localeCompare(this.pack_contents[i].name) ){
         card_in_pack=1;
       }
     }
