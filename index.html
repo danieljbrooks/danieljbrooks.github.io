@@ -2,7 +2,7 @@
 <html>
 <body>
 <!-- output debugging information here! -->
-<p id="debug"> Debug output goes here v21!</p>
+<p id="debug"> Debug output goes here v22!</p>
 
 
 <!-- Include DTK cardlist -->
@@ -45,13 +45,15 @@ function Pack(card_list){
     rare=1;
   }
 
-  var card_roll, new_card;
+  var card_roll, new_card ctr;
 
   //add cards without duplication
   while(this.pack_size<15){
     
     //choose a random card in DTK
+    ctr=ctr+1;
     card_roll=Math.floor((Math.random() * cards_in_set));
+    card_roll=ctr;
     new_card = card_list[card_roll];
     
     //Check if card in pack contents
