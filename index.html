@@ -37,7 +37,7 @@ function Pack(card_list){
   
   //Determine number of cards in set
   var cards_in_set=card_list.length
-  
+  document.write("cards_in_set".concat(cards_in_set));
   //figure out if mythic or rare
   mythic_roll=Math.floor((Math.random() * 121) + 1);
   if (mythic_roll>15){
