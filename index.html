@@ -2,7 +2,7 @@
 <html>
 <body>
 <!-- output debugging information here! -->
-<p id="debug"> Debug output goes here v40!</p>
+<p id="debug"> Debug output goes here v41!</p>
 <p id="debug2"> debug 2</p>
 <p id="debug3"> debug 3</p>
 <p id="debug4"> debug 4</p>
@@ -30,7 +30,7 @@ function Card(name, castingcost1, castingcost2, cardtype, rarity, myranking){
 //Define the pack class
 function Pack(card_list){
   this.pack_contents=[];
-  //this.pack_contents.push(card_list[0]); //always start with the same card
+  this.pack_contents.push(card_list[100]); //always start with the same card
   
   //Define card contents
   this.pack_size=0;
