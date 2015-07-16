@@ -3,7 +3,7 @@
 <body>
 <!-- output debugging information here! -->
 <p id="debug6"> debug 6</p>
-<p id="debug"> Debug output goes here v46!</p>
+<p id="debug"> Debug output goes here v48!</p>
 <p id="debug2"> debug 2</p>
 <p id="debug3"> debug 3</p>
 <p id="debug4"> debug 4</p>
@@ -31,7 +31,6 @@ function Card(name, castingcost1, castingcost2, cardtype, rarity, myranking){
 //Define the pack class
 function Pack(card_list){
   this.pack_contents=[];
-  //this.pack_contents.push(card_list[100]); //always start with the same card
   
   //Define card contents
   this.pack_size=0;
@@ -43,6 +42,23 @@ function Pack(card_list){
   //Determine number of cards in set
   var cards_in_set=card_list.length
   document.getElementById("debug2").innerHTML = cards_in_set;
+  
+  //add a common to start out the pack
+  need_common=true;
+  while(need_common){
+    card_roll=Math.floor((Math.random() * cards_in_set));
+    new_card = card_list[card_roll];
+    if (new_card.rarity=="C"){
+    	this.pack_contents.push(new_card);
+        common=common+1;
+        need_common=false;
+    }
+  }
+  
+  this.pack_contents.push(card_list[com_index]); //always start with the same card
+
+  
+  
   //figure out if mythic or rare
   mythic_roll=Math.floor((Math.random() * 121) + 1);
   if (mythic_roll>15){
