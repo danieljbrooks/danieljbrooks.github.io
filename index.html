@@ -3,7 +3,7 @@
 <body>
 <!-- output debugging information here! -->
 <p id="debug6"> debug 6</p>
-<p id="debug"> Debug output goes here v45!</p>
+<p id="debug"> Debug output goes here v46!</p>
 <p id="debug2"> debug 2</p>
 <p id="debug3"> debug 3</p>
 <p id="debug4"> debug 4</p>
@@ -31,7 +31,7 @@ function Card(name, castingcost1, castingcost2, cardtype, rarity, myranking){
 //Define the pack class
 function Pack(card_list){
   this.pack_contents=[];
-  this.pack_contents.push(card_list[100]); //always start with the same card
+  //this.pack_contents.push(card_list[100]); //always start with the same card
   
   //Define card contents
   this.pack_size=0;
@@ -63,12 +63,13 @@ function Pack(card_list){
     //Check if card in pack contents
     var card_in_pack=0;
     this.pack_size=this.pack_contents.length;
+    if (this.pack_size>0){
     for (var i = 0; i < this.pack_size; i++) {
       if ( new_card.name.localeCompare(this.pack_contents[i].name) ){
         card_in_pack=1;
       }
     }
-    
+    }
     //Determine card rarity and add new card to pack if possible
     rarity_nc=new_card.rarity
     document.getElementById("debug5").innerHTML = rarity_nc;
