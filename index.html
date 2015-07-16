@@ -2,7 +2,7 @@
 <html>
 <body>
 <!-- output debugging information here! -->
-<p id="debug"> Debug output goes here v36!</p>
+<p id="debug"> Debug output goes here v32!</p>
 <p id="debug2"> debug 2</p>
 <p id="debug3"> debug 3</p>
 <p id="debug4"> debug 4</p>
@@ -27,7 +27,6 @@ function Card(name, castingcost1, castingcost2, cardtype, rarity, myranking){
   this.myranking=myranking;
 }
  
-
 //Define the pack class
 function Pack(card_list){
   this.pack_contents=[];
@@ -43,17 +42,13 @@ function Pack(card_list){
   //Determine number of cards in set
   var cards_in_set=card_list.length
   document.getElementById("debug2").innerHTML = cards_in_set;
-
-
   //figure out if mythic or rare
   mythic_roll=Math.floor((Math.random() * 121) + 1);
-
   if (mythic_roll>15){
     mythic=1;
   } else {
     rare=1;
   }
-
   var card_roll, new_card;
   //add cards without duplication
   var its=0;
@@ -64,12 +59,11 @@ function Pack(card_list){
     new_card = card_list[card_roll];
     document.getElementById("debug3").innerHTML = card_roll;
     document.getElementById("debug4").innerHTML = new_card;
-
     //Check if card in pack contents
     var card_in_pack=0;
     this.pack_size=this.pack_contents.length;
     for (var i = 0; i < this.pack_size; i++) {
-      if ( new_card.name==this.pack_contents[i].name) ){
+      if ( new_card.name.localeCompare(this.pack_contents[i].name) ){
         card_in_pack=1;
       }
     }
@@ -77,8 +71,7 @@ function Pack(card_list){
     //Determine card rarity and add new card to pack if possible
     rarity_nc=new_card.rarity
     document.getElementById("debug5").innerHTML = rarity_nc;
-
-    if (card_in_pack==1\0){
+    if (card_in_pack){
       if (rarity_nc=="C" && common < 11){
       	this.pack_contents.push(card_list[card_roll]);
       	common=common+1;
@@ -102,8 +95,6 @@ function Pack(card_list){
 <button onclick="myFunction()">PRESS THE BUTTON</button>
 
 <script>
-
-
 function myFunction() {
     
     var pack1 = new Pack(DTK);
@@ -121,7 +112,6 @@ function myFunction() {
     alert("Pack Created")
     document.getElementById("debug").innerHTML = sc;
 }
-
 </script>
 
 
@@ -145,7 +135,6 @@ function Card(name, castingcost1, castingcost2, cardtype, rarity, myranking){
   this.rarity=rarity
   this.myranking=myranking
 }
-
 dragonlord_dromoka = new Card('dragonlord_dromoka', '4GW', 'none', 'Creature', 'M', 4.9)
 document.getElementById("demo").innerHTML = dragonlord_dromoka.name;
 </script>
@@ -163,19 +152,12 @@ document.getElementById("demo2").innerHTML = person.Name;
 
 
 <!--
-
 <h1>MTG CARD PICKER BOT DEMO</h1>
-
 <button onclick="generateCards()">New Choices</button>
-
 <p id = "cardList"></p>
-
 <button onclick="makePick()">Make Pick</button>
-
 <p id = "output"></p>
-
 <button onclick=location.reload()>Reload Page</button>
-
 <script>
 //
 //var cards = ["C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8", "C9", "C10", "C11", "C12", "C13", "C14"];
@@ -190,7 +172,6 @@ function generateCards()
 		//weight[i] = Math.random();
 	}
 	var text = ""
-
 	i = 0;
 	for(i = 0; i < cards.length; i++)
 	{
@@ -199,10 +180,7 @@ function generateCards()
 	
 	document.getElementById("cardList").innerHTML = text;
 }
-
-
 function makePick()
-
 {
 	var pick = cards[0];
 	var weight = cards[0].weight;
@@ -219,8 +197,5 @@ function makePick()
 	
 	document.getElementById("output").innerHTML = " " + pick.cName + " : " + pick.weight + "<br>";
 }
-
-
 </script>
-
 -->
