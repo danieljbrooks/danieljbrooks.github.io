@@ -55,7 +55,7 @@ function Pack(card_list){
     new_card = card_list[card_roll];
     
     //Check if card in pack contents
-    card_in_pack=0;
+    var card_in_pack=0;
     this.pack_size=this.pack_contents.length;
     for (var i = 0; i < this.pack_size; i++) {
       if ( new_card.name.localeCompare(this.pack_contents[i].name) ){
@@ -67,13 +67,13 @@ function Pack(card_list){
     rarity_nc=new_card.rarity
     if (!card_in_pack){
       if (rarity_nc=="C" && common < 11){
-      	this.pack_contents.push(new_card);
+      	this.pack_contents.push(card_list[card_roll]);
       } else if (rarity_nc=="U" && uncommon < 3){
-      	this.pack_contents.push(new_card);
+      	this.pack_contents.push(card_list[card_roll]);
       } else if (rarity_nc=="R" && rare < 1){
-      	this.pack_contents.push(new_card);
+      	this.pack_contents.push(card_list[card_roll]);
       } else if (rarity_nc=="M" && mythic < 1){
-      	this.pack_contents.push(new_card);
+      	this.pack_contents.push(card_list[card_roll]);
       }
    }    
     //Update pack_size
