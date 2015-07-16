@@ -2,11 +2,14 @@
 <html>
 <body>
 <!-- output debugging information here! -->
-<p id="debug"> Debug output goes here v3!</p>
+<p id="debug"> Debug output goes here v4!</p>
 
 
-<!-- Include DTK cardlist --> 
+<!-- Include DTK cardlist -->
+
+<!--
 <script src="DTK.js"></script>
+-->
 
 <!--Primary Javascript section--> 
 <script>
@@ -20,6 +23,7 @@ function Card(name, castingcost1, castingcost2, cardtype, rarity, myranking){
   this.myranking=myranking;
 }
 
+/*
 //Define the pack class
 function Pack(cardlist){
   this.pack_contents=[];
@@ -76,10 +80,11 @@ function Pack(cardlist){
 }
 </script>
 
-
-<button onclick="myFunction()">my button 2</button>
+<button onclick="myFunction()">my button 4</button>
 
 <script>
+
+
 function myFunction() {
     /*
     var pack1 = new Pack("DTK");
@@ -98,6 +103,7 @@ function myFunction() {
     alert("Pack Created")
     document.getElementById("debug").innerHTML = "New text!";
 }
+
 </script>
 
 
