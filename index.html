@@ -2,7 +2,7 @@
 <html>
 <body>
 <!-- output debugging information here! -->
-<p id="debug"> Debug output goes here v30!</p>
+<p id="debug"> Debug output goes here v31!</p>
 <p id="debug2"> debug 2</p>
 <p id="debug3"> debug 3</p>
 <p id="debug4"> debug 4</p>
@@ -56,8 +56,9 @@ function Pack(card_list){
 
   var card_roll, new_card;
   //add cards without duplication
-  while(this.pack_size<15){
-    
+  var its=0;
+  while(this.pack_size<15 && its<1000){
+    its=its+1;
     //choose a random card in DTK
     card_roll=Math.floor((Math.random() * cards_in_set));
     new_card = card_list[card_roll];
