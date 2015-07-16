@@ -2,12 +2,13 @@
 <html>
 <body>
 <!-- output debugging information here! -->
+<p id="debug6"> debug 6</p>
+<p id="debug"> Debug output goes here v44!</p>
 <p id="debug2"> debug 2</p>
 <p id="debug3"> debug 3</p>
 <p id="debug4"> debug 4</p>
 <p id="debug5"> debug 5</p>
-<p id="debug6"> debug 6</p>
-<p id="debug"> Debug output goes here v44!</p>
+
 
 
 <!-- Include DTK cardlist -->
@@ -98,6 +99,9 @@ function Pack(card_list){
 function myFunction() {
     
     var pack1 = new Pack(DTK);
+    
+    //clear images
+    document.getElementById("debug6").innerHTML = "";
     
     //for each card in the pack
     var sc="The cards in this pack are: ";
