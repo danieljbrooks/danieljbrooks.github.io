@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <body>
+<!-- output debugging information here! -->
+<p id="debug"> Debug output goes here v3!</p>
 
 
 <!-- Include DTK cardlist --> 
@@ -81,7 +83,6 @@ function Pack(cardlist){
 function myFunction() {
     var pack1 = new Pack("DTK");
     
-    
     //for each card in the pack
     var string_contents="The cards in this pack are: ";
     for (var i = 0; i < pack1.pack_size; i++) {
@@ -91,8 +92,8 @@ function myFunction() {
     }
     //alert("Hello! I am an alert box!");
     var my_string = "this is my string"
-    alert(my_string)
-    alert(string_contents)
+    alert("Pack Created")
+    document.getElementById("debug").innerHTML = "New text!";
 }
 </script>
 
