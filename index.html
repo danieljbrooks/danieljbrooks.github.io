@@ -72,17 +72,25 @@ function Pack(cardlist){
     //Update pack_size
     this.pack_size=pack_contents.length;
 }
-alert("hello");
-alert("hello again");
-
 </script>
 
 
-<button onclick="myFunction()">alert box</button>
+<button onclick="myFunction()">Generate Pack</button>
 
 <script>
 function myFunction() {
+    var pack1 = new Pack("DTK");
+    
+    
+    //for each card in the pack
+    var string_contents="The cards in this pack are: ";
+    for (var i = 0; i < pack1.pack_size; i++) {
+      string_contents.concat(string_contents, pack1.pack_contents[i].name);
+      string_contents.concat(string_contents, " ");
+
+    }
     alert("Hello! I am an alert box!");
+    alert(string_contents)
 }
 </script>
 
