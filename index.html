@@ -2,7 +2,7 @@
 <html>
 <body>
 <!-- output debugging information here! -->
-<p id="debug"> Debug output goes here v19!</p>
+<p id="debug"> Debug output goes here v20!</p>
 
 
 <!-- Include DTK cardlist -->
@@ -45,12 +45,14 @@ function Pack(card_list){
     rare=1;
   }
 
+  var card_roll, new_card;
+
   //add cards without duplication
   while(this.pack_size<15){
     
     //choose a random card in DTK
-    var card_roll=Math.floor((Math.random() * cards_in_set));
-    var new_card = card_list[card_roll];
+    card_roll=Math.floor((Math.random() * cards_in_set));
+    new_card = card_list[card_roll];
     
     //Check if card in pack contents
     card_in_pack=0;
@@ -76,7 +78,7 @@ function Pack(card_list){
    }    
     //Update pack_size
     this.pack_size=this.pack_contents.length;
-}
+  }
 }
 </script>
 
