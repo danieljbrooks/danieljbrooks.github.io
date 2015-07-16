@@ -2,7 +2,7 @@
 <html>
 <body>
 <!-- output debugging information here! -->
-<p id="debug"> Debug output goes here v15!</p>
+<p id="debug"> Debug output goes here v16!</p>
 
 
 <!-- Include DTK cardlist -->
@@ -90,13 +90,12 @@ function myFunction() {
     var pack1 = new Pack(DTK);
     
     //for each card in the pack
-    var string_contents="The cards in this pack are: ";
+    var sc="The cards in this pack are: ";
     for (var i = 0; i < pack1.pack_size; i++) {
-      string_contents.concat(string_contents, pack1.pack_contents[i].name);
-      string_contents.concat(string_contents, " ");
-
+      sc=sc.concat(pack1.pack_contents[i].name);
+      sc=sc.concat(" ");
     }
-    string_contents.concat(string_contents, " .");
+    sc=sc.concat(" .");
     
     //alert("Hello! I am an alert box!");
     var my_string = "this is my string"
