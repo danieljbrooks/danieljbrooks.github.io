@@ -2,7 +2,7 @@
 <html>
 <body>
 <!-- output debugging information here! -->
-<p id="debug"> Debug output goes here v27!</p>
+<p id="debug"> Debug output goes here v28!</p>
 <p id="debug2"> debug 2</p>
 <p id="debug3"> debug 3</p>
 <p id="debug4"> debug 4</p>
@@ -47,7 +47,6 @@ function Pack(card_list){
 
   //figure out if mythic or rare
   mythic_roll=Math.floor((Math.random() * 121) + 1);
-  document.getElementById("debug3").innerHTML = mythic_roll;
 
   if (mythic_roll>15){
     mythic=1;
@@ -65,7 +64,9 @@ function Pack(card_list){
     card_roll=Math.floor((Math.random() * cards_in_set));
     card_roll=ctr;
     new_card = card_list[card_roll];
-    
+    document.getElementById("debug3").innerHTML = card_roll;
+    document.getElementById("debug4").innerHTML = new_card;
+
     //Check if card in pack contents
     var card_in_pack=0;
     this.pack_size=this.pack_contents.length;
