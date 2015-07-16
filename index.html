@@ -1,51 +1,79 @@
-
 <!DOCTYPE html>
 <html>
 <body>
 
+
+<!-- Include DTK cardlist --> 
 <script src="DTK.js"></script>
 
- <script>
- 
+<!--Primary Javascript section--> 
+<script>
+//Define the card class
 function Card(name, castingcost1, castingcost2, cardtype, rarity, myranking){
-  this.name=name
-  this.castingcost1=castingcost1
-  this.castingcost2=castingcost2
-  this.cardtype=cardtype
-  this.rarity=rarity
-  this.myranking=myranking
+  this.name=name;
+  this.castingcost1=castingcost1;
+  this.castingcost2=castingcost2;
+  this.cardtype=cardtype;
+  this.rarity=rarity;
+  this.myranking=myranking;
 }
 
-function generate_cardlist(path_to_rankings){
-  <!-- Generate card objects from data file -->
-}
-
+//Define the pack class
 function Pack(cardlist){
-  pack_contents=[]
+  this.pack_contents=[];
+
+  //Define card contents
+  this.pack_size=0;
+  var common=0;
+  var uncommon=0;
+  var rare=0;
+  var mythic=0;
   
-  #Define card contents
-  cards_in_pack=0
-  com=0
-  unc=0
-  rare=0
-  mythic=0
+  //Determine number of cards in set
+  var cards_in_set=cardlist.length
   
-  #figure out if mythic or rare
-  mythic_roll=Math.floor((Math.random() * 121) + 1)
+  //figure out if mythic or rare
+  mythic_roll=Math.floor((Math.random() * 121) + 1);
   if (mythic_roll>15){
     mythic=1;
   } else {
-    rare=1
+    rare=1;
   }
-  
-  #add cards without duplication
-  #Needs to be implemented
-  
-  }
-  
-  #Add another 120 lines of code
-  
+
+  //add cards without duplication
+  while(this.pack_size<15){
+    
+    //choose a random card in DTK
+    card_roll=Math.floor((Math.random() * cards_in_set));
+    var new_card = card_list[card_roll];
+    
+    //Check if card in pack contents
+    card_in_pack=0;
+    this.pack_size=pack_contents.length;
+    for (var i = 0; i < this.pack_size; i++) {
+      if ( new_card.name.localeCompare(pack_contents[i].name) ){
+        card_in_pack=1;
+      }
+    }
+    
+    //Determine card rarity and add new card to pack if possible
+    rarity_nc=new_card.rarity
+    if (!card_in_pack){
+      if (rarity_nc=="C" && common < 11){
+      	this.pack_contents.push(new_card);
+      } else if (rarity_nc=="U" && uncommon < 3){
+      	this.pack_contents.push(new_card);
+      } else if (rarity_nc=="R" && rare < 1){
+      	this.pack_contents.push(new_card);
+      } else if (rarity_nc=="M" && mythic < 1){
+      	this.pack_contents.push(new_card);
+      }
+   }    
+    //Update pack_size
+    this.pack_size=pack_contents.length;
 }
+alert("hello");
+
 </script>
 
 <h1> Behold, pictures of dragons. Check back soon for the draft simulator!</h1>
