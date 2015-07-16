@@ -2,7 +2,7 @@
 <html>
 <body>
 <!-- output debugging information here! -->
-<p id="debug"> Debug output goes here v17!</p>
+<p id="debug"> Debug output goes here v18!</p>
 
 
 <!-- Include DTK cardlist -->
@@ -49,7 +49,7 @@ function Pack(card_list){
   while(this.pack_size<15){
     
     //choose a random card in DTK
-    card_roll=Math.floor((Math.random() * cards_in_set));
+    var card_roll=Math.floor((Math.random() * cards_in_set));
     var new_card = card_list[card_roll];
     
     //Check if card in pack contents
