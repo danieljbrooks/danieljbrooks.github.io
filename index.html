@@ -2,7 +2,7 @@
 <html>
 <body>
 <!-- output debugging information here! -->
-<p id="debug"> Debug output goes here v10!</p>
+<p id="debug"> Debug output goes here v11!</p>
 
 
 <!-- Include DTK cardlist -->
@@ -54,7 +54,7 @@ function Pack(card_list){
     
     //Check if card in pack contents
     card_in_pack=0;
-    this.pack_size=pack_contents.length;
+    this.pack_size=this.pack_contents.length;
     for (var i = 0; i < this.pack_size; i++) {
       if ( new_card.name.localeCompare(pack_contents[i].name) ){
         card_in_pack=1;
@@ -75,7 +75,7 @@ function Pack(card_list){
       }
    }    
     //Update pack_size
-    this.pack_size=pack_contents.length;
+    this.pack_size=this.pack_contents.length;
 }
 }
 </script>
