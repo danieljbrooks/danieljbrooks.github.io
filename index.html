@@ -2,7 +2,7 @@
 <html>
 <body>
 <!-- output debugging information here! -->
-<p id="debug"> Debug output goes here v29!</p>
+<p id="debug"> Debug output goes here v30!</p>
 <p id="debug2"> debug 2</p>
 <p id="debug3"> debug 3</p>
 <p id="debug4"> debug 4</p>
@@ -75,15 +75,21 @@ function Pack(card_list){
     
     //Determine card rarity and add new card to pack if possible
     rarity_nc=new_card.rarity
+    document.getElementById("debug5").innerHTML = rarity_nc;
+
     if (!card_in_pack){
       if (rarity_nc=="C" && common < 11){
       	this.pack_contents.push(card_list[card_roll]);
+      	common=common+1;
       } else if (rarity_nc=="U" && uncommon < 3){
       	this.pack_contents.push(card_list[card_roll]);
+      	uncommon=uncommon+1;
       } else if (rarity_nc=="R" && rare < 1){
       	this.pack_contents.push(card_list[card_roll]);
+      	rare=rare+1;
       } else if (rarity_nc=="M" && mythic < 1){
       	this.pack_contents.push(card_list[card_roll]);
+      	mythic=mythic+1;
       }
    }    
     //Update pack_size
