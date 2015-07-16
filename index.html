@@ -26,7 +26,8 @@ function Card(name, castingcost1, castingcost2, cardtype, rarity, myranking){
 //Define the pack class
 function Pack(card_list){
   this.pack_contents=[];
-
+  this.pack_contents.push(card_list[0]); //always start with the same card
+  
   //Define card contents
   this.pack_size=0;
   var common=0;
