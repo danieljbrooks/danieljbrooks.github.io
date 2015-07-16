@@ -2,7 +2,12 @@
 <html>
 <body>
 <!-- output debugging information here! -->
-<p id="debug"> Debug output goes here v26!</p>
+<p id="debug"> Debug output goes here v27!</p>
+<p id="debug2"> debug 2</p>
+<p id="debug3"> debug 3</p>
+<p id="debug4"> debug 4</p>
+<p id="debug5"> debug 5</p>
+<p id="debug6"> debug 6</p>
 
 
 <!-- Include DTK cardlist -->
@@ -37,9 +42,13 @@ function Pack(card_list){
   
   //Determine number of cards in set
   var cards_in_set=card_list.length
-  document.write("cards_in_set".concat(cards_in_set));
+  document.getElementById("debug2").innerHTML = cards_in_set;
+
+
   //figure out if mythic or rare
   mythic_roll=Math.floor((Math.random() * 121) + 1);
+  document.getElementById("debug3").innerHTML = mythic_roll;
+
   if (mythic_roll>15){
     mythic=1;
   } else {
