@@ -1,19 +1,8 @@
 <!DOCTYPE html>
 <html>
 <body>
-<!-- output debugging information here! -->
-<p id="debug6"> debug 6</p>
-<p id="debug"> Debug output goes here v50!</p>
-<p id="debug2"> debug 2</p>
-<p id="debug3"> debug 3</p>
-<p id="debug4"> debug 4</p>
-<p id="debug5"> debug 5</p>
-
-
 
 <!-- Include DTK cardlist -->
-
-
 <script src="DTK.js"></script>
 
 <!--Primary Javascript section--> 
@@ -109,10 +98,10 @@ function Pack(card_list){
 }
 </script>
 
-<button onclick="myFunction()">PRESS THE BUTTON</button>
+<button onclick="printPackBeta()" style="width:150px;">Generate Pack</button>
 
 <script>
-function myFunction() {
+function printPackBeta() {
     
     var pack1 = new Pack(DTK);
     
@@ -167,6 +156,14 @@ function Card(name, castingcost1, castingcost2, cardtype, rarity, myranking){
 var person = {Name:"Acid-Spewer Dragon", lastName:"3+5BB"};
 document.getElementById("demo2").innerHTML = person.Name;
 </script>
+
+<!-- output debugging information here! -->
+<p id="debug6"> </p>
+<p id="debug"> v50</p>
+<p id="debug2"> </p>
+<p id="debug3"> </p>
+<p id="debug4"> </p>
+<p id="debug5"> </p>
 
 </body>
 </html>
