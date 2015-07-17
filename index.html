@@ -7,6 +7,7 @@
 
 <!--Primary Javascript section--> 
 <script>
+
 //Define the card class
 function Card(name, castingcost1, castingcost2, cardtype, rarity, myranking){
   this.name=name;
@@ -22,7 +23,6 @@ function Pack(card_list){
   this.pack_contents=[];
   
   //Define card contents
-  this.pack_size=0;
   var common=0;
   var uncommon=0;
   var rare=0;
@@ -44,9 +44,6 @@ function Pack(card_list){
     }
   }
   
-
-  
-  
   //figure out if mythic or rare
   mythic_roll=Math.floor((Math.random() * 121) + 1);
   if (mythic_roll>15){
@@ -54,26 +51,26 @@ function Pack(card_list){
   } else {
     rare=1;
   }
-  var card_roll, new_card;
+  
   //add cards without duplication
-  var its=0;
-  while(this.pack_size<15 && its<1000){
+  var its=0; //prevent infinite loops
+  while(this.pack_contents.length<15 && its<10000){
     its=its+1;
+    
     //choose a random card in DTK
-    card_roll=Math.floor((Math.random() * cards_in_set));
-    new_card = card_list[card_roll];
-    document.getElementById("debug3").innerHTML = card_roll;
-    document.getElementById("debug4").innerHTML = new_card;
+    var card_roll=Math.floor((Math.random() * cards_in_set));
+    var new_card = card_list[card_roll];
+
     //Check if card in pack contents
     var card_in_pack=0;
-    this.pack_size=this.pack_contents.length;
-    if (this.pack_size>0){
-    for (var i = 0; i < this.pack_size; i++) {
-      if ( new_card.name==this.pack_contents[i].name){
-        card_in_pack=1;
+    if (this.pack_contents.length>0){
+      for (var i = 0; i < this.pack_contents.length; i++) {
+        if ( new_card.name==this.pack_contents[i].name){
+          card_in_pack=1;
+        }
       }
     }
-    }
+    
     //Determine card rarity and add new card to pack if possible
     rarity_nc=new_card.rarity
     document.getElementById("debug5").innerHTML = rarity_nc;
@@ -92,8 +89,6 @@ function Pack(card_list){
       	mythic=mythic+1;
       }
    }    
-    //Update pack_size
-    this.pack_size=this.pack_contents.length;
   }
 }
 </script>
@@ -110,7 +105,7 @@ function printPackBeta() {
     
     //for each card in the pack
     var sc="The cards in this pack are: ";
-    for (var i = 0; i < pack1.pack_size; i++) {
+    for (var i = 0; i < pack1.pack_contents.length; i++) {
       sc=sc.concat(pack1.pack_contents[i].name);
       sc=sc.concat(" ");
       
@@ -126,6 +121,11 @@ function printPackBeta() {
     var my_string = "this is my string"
     //alert("Pack Created")
     document.getElementById("debug").innerHTML = sc;
+    
+    //Get rid of acid-spewer dragon picture
+    var image1 = document.getElementById('image1');
+    image_x.parentNode.removeChild(image_x);
+    
 }
 </script>
 
@@ -148,18 +148,12 @@ function Card(name, castingcost1, castingcost2, cardtype, rarity, myranking){
 }
 
 </script>
-<p id="demo2">Display the result here.</p>
-
-<img src="/DTK/Acid-Spewer_Dragon.png";>
-
-<script>
-var person = {Name:"Acid-Spewer Dragon", lastName:"3+5BB"};
-document.getElementById("demo2").innerHTML = person.Name;
-</script>
+<button onclick="printPackBeta()" style="width:150px;">Generate Pack</button>
 
 <!-- output debugging information here! -->
+<img id="image1" src="/DTK/Acid-Spewer_Dragon.png";>
 <p id="debug6"> </p>
-<p id="debug"> v50</p>
+<p id="debug"> v51</p>
 <p id="debug2"> </p>
 <p id="debug3"> </p>
 <p id="debug4"> </p>
