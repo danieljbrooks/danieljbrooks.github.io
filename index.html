@@ -3,7 +3,7 @@
 <body>
 <!-- output debugging information here! -->
 <p id="debug6"> debug 6</p>
-<p id="debug"> Debug output goes here v49!</p>
+<p id="debug"> Debug output goes here v50!</p>
 <p id="debug2"> debug 2</p>
 <p id="debug3"> debug 3</p>
 <p id="debug4"> debug 4</p>
@@ -80,7 +80,7 @@ function Pack(card_list){
     this.pack_size=this.pack_contents.length;
     if (this.pack_size>0){
     for (var i = 0; i < this.pack_size; i++) {
-      if ( new_card.name.localeCompare(this.pack_contents[i].name) ){
+      if ( new_card.name==this.pack_contents[i].name){
         card_in_pack=1;
       }
     }
@@ -88,7 +88,7 @@ function Pack(card_list){
     //Determine card rarity and add new card to pack if possible
     rarity_nc=new_card.rarity
     document.getElementById("debug5").innerHTML = rarity_nc;
-    if (card_in_pack){
+    if (card_in_pack<1){
       if (rarity_nc=="C" && common < 11){
       	this.pack_contents.push(card_list[card_roll]);
       	common=common+1;
