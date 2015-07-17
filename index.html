@@ -124,7 +124,7 @@ function printPackBeta() {
     
     //Get rid of acid-spewer dragon picture
     var image1 = document.getElementById('image1');
-    image_x.parentNode.removeChild(image_x);
+    image1.parentNode.removeChild(image1);
     
 }
 </script>
@@ -148,9 +148,8 @@ function Card(name, castingcost1, castingcost2, cardtype, rarity, myranking){
 }
 
 </script>
-<button onclick="printPackBeta()" style="width:150px;">Generate Pack</button>
-
-<!-- output debugging information here! -->
+<button onclick="printPackBeta()">Generate Pack</button>
+<p id="linespacing"></p>
 <img id="image1" src="/DTK/Acid-Spewer_Dragon.png";>
 <p id="debug6"> </p>
 <p id="debug"> v51</p>
