@@ -9,14 +9,14 @@
 <script>
 
 //Define the card class
-function Card(name, castingcost1, castingcost2, cardtype, rarity, myranking){
-  this.name=name;
-  this.castingcost1=castingcost1;
-  this.castingcost2=castingcost2;
-  this.cardtype=cardtype;
-  this.rarity=rarity;
-  this.myranking=myranking;
-}
+//function Card(name, castingcost1, castingcost2, cardtype, rarity, myranking){
+//  this.name=name;
+//  this.castingcost1=castingcost1;
+//  this.castingcost2=castingcost2;
+//  this.cardtype=cardtype;
+//  this.rarity=rarity;
+//  this.myranking=myranking;
+//}
  
 //Define the pack class
 function Pack(card_list){
@@ -123,8 +123,67 @@ function printPackBeta() {
 }
 </script>
 
+<script>
+//generate a draft object
 
 
+function Draft(set1, set2, set3, num_players){
+  
+  //Create an array of players
+  this.players=[]
+ 
+  //Add players
+  for (i = 1; i < num_players; i++) {
+    this.players.push({pack:(new Pack(set1)),collection:[]})
+  }
+  
+  //Print collection
+  Print_collection(this, 0)
+  	
+}
+
+function Print_collection(cur_draft, player_index){
+  
+  //Define region to print to
+  var div = document.getElementById('debug7');
+  
+  //Clear the region
+  document.getElementById(pl).innerHTML = "";
+  
+  //Print each card in the pack
+  pack_length=cur_draft.players[player_index].pack.pack_contents.length
+  for (i = 0; i < pack_length; i++) {
+     var cur_card = cur_draft.players[player_index].pack.pack_contents[i];
+     div.innerHTML= div.innerHTML + cur_card.name + "       " + cur_card.myrating + "\n";
+  }
+  
+  
+  //How to append to javascript element
+  //var div = document.getElementById('divID');
+  //div.innerHTML = div.innerHTML + 'Extra stuff';
+  //
+  
+}
+
+//Start a draft
+Draft("DTK", "DTK", "DTK", 8);
+
+
+//Player classes fields: pack, collection[]
+//var person = {pack:[], collection=[]};
+
+//Define the card class
+//function Card(name, castingcost1, castingcost2, cardtype, rarity, myranking){
+//  this.name=name;
+//  this.castingcost1=castingcost1;
+//  this.castingcost2=castingcost2;
+//  this.cardtype=cardtype;
+//  this.rarity=rarity;
+//  this.myranking=myranking;
+//}
+
+
+</script>
 
 
 <h1> Look, a button! Check back soon for the draft simulator!</h1>
@@ -143,6 +202,7 @@ function Card(name, castingcost1, castingcost2, cardtype, rarity, myranking){
 
 </script>
 <button onclick="printPackBeta()" style="fontSize:xx-large;">Generate Pack</button>
+<p id="debug7"> </p>
 <p id="debug6"> </p>
 <p id="debug"> v61</p>
 <p id="debug2"> </p>
