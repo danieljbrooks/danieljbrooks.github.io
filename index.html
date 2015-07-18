@@ -136,7 +136,10 @@ function Draft(set1, set2, set3, num_players){
  
   //Add players
   for (i = 1; i < num_players; i++) {
-    this.players.push({pack:(new Pack(set1)),collection:[]})
+    //Needs to be debugged
+    var pack_i=new Pack(set1);
+    var drafter_i= {pack_i,collection:[]};
+    this.players.push(drafter_i);
   }
   	
 }
@@ -203,7 +206,7 @@ var draft1 = new Draft(DTK, DTK, DTK, 8);
 <button onclick="Print_collection(draft1 , 0)" style="fontSize:xx-large;">Print Collection</button>
 <p id="debug7"> </p>
 <p id="debug6"> </p>
-<p id="debug"> v72</p>
+<p id="debug"> v73</p>
 <p id="debug2"> </p>
 <p id="debug3"> </p>
 <p id="debug4"> </p>
