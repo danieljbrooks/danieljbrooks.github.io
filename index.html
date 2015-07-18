@@ -158,45 +158,13 @@ function Print_collection(cur_draft, player_index){
      var cur_card = cur_draft.players[player_index].pack.pack_contents[i];
      div.innerHTML= div.innerHTML + cur_card.name + "       " + cur_card.myrating + "\n";
   }
-  
-  
-  //How to append to javascript element
-  //var div = document.getElementById('divID');
-  //div.innerHTML = div.innerHTML + 'Extra stuff';
-  //
-  
 }
-
-//Player classes fields: pack, collection[]
-//var person = {pack:[], collection=[]};
-
-//Define the card class
-//function Card(name, castingcost1, castingcost2, cardtype, rarity, myranking){
-//  this.name=name;
-//  this.castingcost1=castingcost1;
-//  this.castingcost2=castingcost2;
-//  this.cardtype=cardtype;
-//  this.rarity=rarity;
-//  this.myranking=myranking;
-//}
-
-
 </script>
 
 
 <h1> Look, a button! Check back soon for the draft simulator!</h1>
 <p><a href="https://www.pythonanywhere.com/gists/905201f664f09b8a3b11/code.py/ipython2/">Draft Simulator (Pre-Alpha)!</a></p>
 <p>Interested? Contact danielbrooks20 at gmail dot com</p>
-
-<script>
-function Card(name, castingcost1, castingcost2, cardtype, rarity, myranking){
-  this.name=name
-  this.castingcost1=castingcost1
-  this.castingcost2=castingcost2
-  this.cardtype=cardtype
-  this.rarity=rarity
-  this.myranking=myranking
-}
 
 //Start a draft
 var draft1 = new Draft(DTK, DTK, DTK, 8);
@@ -212,56 +180,5 @@ var draft1 = new Draft(DTK, DTK, DTK, 8);
 <p id="debug4"> </p>
 <p id="debug5"> </p>
 
-
 </body>
 </html>
-
-
-<!--
-<h1>MTG CARD PICKER BOT DEMO</h1>
-<button onclick="generateCards()">New Choices</button>
-<p id = "cardList"></p>
-<button onclick="makePick()">Make Pick</button>
-<p id = "output"></p>
-<button onclick=location.reload()>Reload Page</button>
-<script>
-//
-//var cards = ["C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8", "C9", "C10", "C11", "C12", "C13", "C14"];
-var cards = [];
-var i;
-function generateCards()
-{
-	for(i = 0; i < 14; i++)
-	{
-		var card = {cName: "C" + i, weight: Math.random()};
-		cards[i] = card;
-		//weight[i] = Math.random();
-	}
-	var text = ""
-	i = 0;
-	for(i = 0; i < cards.length; i++)
-	{
-		text += " " + cards[i].cName + " : " + cards[i].weight + "<br>";
-	}
-	
-	document.getElementById("cardList").innerHTML = text;
-}
-function makePick()
-{
-	var pick = cards[0];
-	var weight = cards[0].weight;
-	
-	for(i = 0; i < cards.length; i++)
-	{
-		if(cards[i].weight > weight)
-		{
-			pick = cards[i];
-			weight = cards[i].weight;
-		}
-	}
-	
-	
-	document.getElementById("output").innerHTML = " " + pick.cName + " : " + pick.weight + "<br>";
-}
-</script>
--->
