@@ -96,7 +96,7 @@ function Pack(card_list){
 </script>
 
 <!--The generate pack button--> 
-<script> function printPackBeta() {
+<!-- <script> function printPackBeta() {
     
     var pack1 = new Pack(DTK);
     
@@ -122,7 +122,8 @@ function Pack(card_list){
     //alert("Pack Created")
     document.getElementById("debug").innerHTML = sc;
     
-} </script> 
+} </script> -->
+
 <script> function display_pack(pack_disp){
    document.getElementById("debug6").innerHTML = "";
    for (var i = 0; i < pack_disp.pack_contents.length; i++) {
@@ -134,6 +135,7 @@ function Pack(card_list){
       document.getElementById('debug6').appendChild(img);
       
   }
+
 } </script>
 <script> function Draft(set1, set2, set3, num_players){
   
@@ -148,23 +150,27 @@ function Pack(card_list){
     this.players.push(drafter_i);
   }
 } </script>
+
 <script> function Print_collection(cur_draft, player_index){
-  //create a new draft
-  //var cur_draft = new Draft(DTK, DTK, DTK, 8);
   
-  //Define region to print to
+  //Card text and ratings
   var div = document.getElementById("debug7");
-  
-  //Clear the region
   div.innerHTML = "";
-  
-  //Print each card in the pack
   pack_length=cur_draft.players[player_index].pack.pack_contents.length
   for (i = 0; i < pack_length; i++) {
     var cur_card = cur_draft.players[player_index].pack.pack_contents[i];
     div.innerHTML= div.innerHTML + cur_card.name + "       " + cur_card.myrating + "<br>";
   }
-} </script>
+  
+  //Print card images
+  document.getElementById("debug6").innerHTML = "";
+  for (var i = 0; i < pack_disp.pack_contents.length; i++) {
+    var img = document.createElement('img');
+    img.src = "DTK/".concat(pack_disp.pack_contents[i].image);
+    img.alt = "this is alternate text";
+    document.getElementById('debug6').appendChild(img);
+ } </script>
+}
 <script> function Draft_DTK(){
   this.new_draft = new Draft(DTK, DTK, DTK, 8);
   Print_collection(this.new_draft, 0);
@@ -181,7 +187,7 @@ function Pack(card_list){
 <button onclick= "Draft_DTK()" style="fontSize:xx-large;">Draft DTK-DTK-DTK</button>
 <p id="debug7"> </p>
 <p id="debug6"> </p>
-<p id="debug"> v83</p>
+<p id="debug"> v85</p>
 <p id="debug2"> </p>
 <p id="debug3"> </p>
 <p id="debug4"> </p>
