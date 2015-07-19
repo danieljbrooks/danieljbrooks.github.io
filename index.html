@@ -116,8 +116,12 @@
  //card images
    var img = document.createElement("img");
    img.src = "DTK/".concat(cur_card.image);
-   document.getElementById("img").onclick = make_pick(i); //not going to work
+   document.getElementById("img").onclick = "make_pick(0)"; //not going to work
    document.getElementById('debug6').appendChild(img);
+   
+   //new method
+   //document.getElementById('imageDiv').innerHTML = '<img onclick = "make_pick(0)"  src="imageName.png" />';
+    
  }
 
  collection_length=draft.players[0].pack.pack_contents.length
@@ -225,7 +229,7 @@ if (cards_picked <= pack_size-1){   //pass left
 <button onclick= "Draft_DTK()" style="fontSize:xx-large;">Draft DTK-DTK-DTK</button>
 <p id="debug7"> </p>
 <p id="debug6"> </p>
-<p id="debug"> v105</p>
+<p id="debug"> v106</p>
 <p id="debug2"> </p>
 <p id="debug3"> </p>
 <p id="debug4"> </p>
