@@ -196,7 +196,7 @@ if (cards_picked <= pack_size-1){   //pass left
  for (var i = 0; i < pack_length; i++) { 
    var cur_rating = bot.pack.pack_contents[i].myrating; //is this a number?
    if (cur_rating > best_rating){
-    best_rating=current_rating;
+    best_rating=cur_rating;
     best_index=i;
    }
  }
@@ -223,7 +223,7 @@ return bot;
 <button onclick= "Draft_DTK()" style="fontSize:xx-large;">Draft DTK-DTK-DTK</button>
 <p id="debug7"> </p>
 <p id="debug6"> </p>
-<p id="debug"> v96</p>
+<p id="debug"> v97</p>
 <p id="debug2"> </p>
 <p id="debug3"> </p>
 <p id="debug4"> </p>
