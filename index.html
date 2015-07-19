@@ -115,7 +115,7 @@
  //card images
    var img = document.createElement("img");
    img.src = "DTK/".concat(cur_card.image);
-   document.getElementById("img").onclick = make_pick(draft, i); //not going to work
+   document.getElementById("img").onclick = make_pick(this, i); //not going to work
    document.getElementById('debug6').appendChild(img);
  }
 
@@ -223,7 +223,7 @@ return bot;
 <button onclick= "Draft_DTK()" style="fontSize:xx-large;">Draft DTK-DTK-DTK</button>
 <p id="debug7"> </p>
 <p id="debug6"> </p>
-<p id="debug"> v89</p>
+<p id="debug"> v90</p>
 <p id="debug2"> </p>
 <p id="debug3"> </p>
 <p id="debug4"> </p>
