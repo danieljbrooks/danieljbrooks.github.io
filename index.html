@@ -126,6 +126,22 @@ function printPackBeta() {
 </script>
 
 <script>
+function display_pack(pack_disp){
+   document.getElementById("debug6").innerHTML = "";
+   for (var i = 0; i < pack_disp.pack_contents.length; i++) {
+      
+      //Add images to debug6 section
+      var img = document.createElement('img');
+      img.src = "DTK/".concat(pack_disp.pack_contents[i].image)
+      document.getElementById('debug6').appendChild(img)
+      
+  }
+
+}
+
+</script>
+
+<script>
 //generate a draft object
 
 
@@ -169,7 +185,7 @@ function Print_collection(cur_draft, player_index){
 function Draft_DTK(){
   this.new_draft = new Draft(DTK, DTK, DTK, 8);
   Print_collection(this.new_draft, 0);
-  Print_collection(this.new_draft, 1);
+  display_pack(this.new_draft.players[0].pack);
 }
 </script>
 
@@ -186,7 +202,7 @@ function Draft_DTK(){
 
 <p id="debug7"> </p>
 <p id="debug6"> </p>
-<p id="debug"> v80</p>
+<p id="debug"> v82</p>
 <p id="debug2"> </p>
 <p id="debug3"> </p>
 <p id="debug4"> </p>
