@@ -191,14 +191,14 @@ if (cards_picked <= pack_size-1){   //pass left
 <script> function bot_pick(bot_index){
  
  //output to screen 
- document.getElementById("debug8").innerHTML = i;
- var pack_length=draft.players[i].pack_contents.length;
+ document.getElementById("debug8").innerHTML = bot_index;
+ var pack_length=draft.players[bot_index].pack_contents.length;
  
  //determine the highest rated card
  var best_rating=0;
  var best_index=0;
  for (var i = 0; i < pack_length; i++) { 
-   var cur_rating = draft.players[i].pack.pack_contents[i].myrating; //is this a number?
+   var cur_rating = draft.players[bot_index].pack.pack_contents[i].myrating; //is this a number?
    if (cur_rating > best_rating){
     best_rating=cur_rating;
     best_index=i;
@@ -206,8 +206,8 @@ if (cards_picked <= pack_size-1){   //pass left
  }
  
  //choose the card (does this propertly modify bot?)
-  draft.players[i].collection.push(draft.players[i].pack.pack_contents[best_index]); //pick the card
-  draft.players[i].pack.pack_contents.splice(best_index,1); //remove from pack
+  draft.players[bot_index].collection.push(draft.players[bot_index].pack.pack_contents[best_index]); //pick the card
+  draft.players[bot_index].pack.pack_contents.splice(best_index,1); //remove from pack
  
 }</script>
 
@@ -225,7 +225,7 @@ if (cards_picked <= pack_size-1){   //pass left
 <button onclick= "Draft_DTK()" style="fontSize:xx-large;">Draft DTK-DTK-DTK</button>
 <p id="debug7"> </p>
 <p id="debug6"> </p>
-<p id="debug"> v102</p>
+<p id="debug"> v103</p>
 <p id="debug2"> </p>
 <p id="debug3"> </p>
 <p id="debug4"> </p>
