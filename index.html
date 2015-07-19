@@ -132,8 +132,9 @@ function display_pack(pack_disp){
       
       //Add images to debug6 section
       var img = document.createElement('img');
-      img.src = "DTK/".concat(pack_disp.pack_contents[i].image)
-      document.getElementById('debug6').appendChild(img)
+      img.src = "DTK/".concat(pack_disp.pack_contents[i].image);
+      img.alt = "this is alternate text";
+      document.getElementById('debug6').appendChild(img);
       
   }
 
@@ -202,7 +203,7 @@ function Draft_DTK(){
 
 <p id="debug7"> </p>
 <p id="debug6"> </p>
-<p id="debug"> v82</p>
+<p id="debug"> v83</p>
 <p id="debug2"> </p>
 <p id="debug3"> </p>
 <p id="debug4"> </p>
