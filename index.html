@@ -138,11 +138,12 @@ function Draft(set1, set2, set3, num_players){
   for (i = 1; i < num_players; i++) {
     //Needs to be debugged
     var pack_i=new Pack(set1);
-    var drafter_i= {pack_i,collection:[]};
+    var drafter_i= {pack:pack_i,collection:[]};
     this.players.push(drafter_i);
   }
-  	
 }
+
+//player has fields: {pack, collection}
 
 function Print_collection(cur_draft, player_index){
   
@@ -155,8 +156,8 @@ function Print_collection(cur_draft, player_index){
   //Print each card in the pack
   pack_length=cur_draft.players[player_index].pack.pack_contents.length
   for (i = 0; i < pack_length; i++) {
-     var cur_card = cur_draft.players[player_index].pack.pack_contents[i];
-     div.innerHTML= div.innerHTML + cur_card.name + "       " + cur_card.myrating + "\n";
+    var cur_card = cur_draft.players[player_index].pack.pack_contents[i];
+    div.innerHTML= div.innerHTML + cur_card.name + "       " + cur_card.myrating + "\n";
   }
 }
 </script>
@@ -174,7 +175,7 @@ var draft1 = new Draft(DTK, DTK, DTK, 8);
 <button onclick="Print_collection(draft1 , 0)" style="fontSize:xx-large;">Print Collection</button>
 <p id="debug7"> </p>
 <p id="debug6"> </p>
-<p id="debug"> v73</p>
+<p id="debug"> v74</p>
 <p id="debug2"> </p>
 <p id="debug3"> </p>
 <p id="debug4"> </p>
