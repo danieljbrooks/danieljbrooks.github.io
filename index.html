@@ -192,7 +192,7 @@ if (cards_picked <= pack_size-1){   //pass left
  
  //output to screen 
  document.getElementById("debug8").innerHTML = bot_index;
- var pack_length=draft.players[bot_index].pack_contents.length;
+ var pack_length=draft.players[bot_index].pack.pack_contents.length;
  
  //determine the highest rated card
  var best_rating=0;
@@ -225,7 +225,7 @@ if (cards_picked <= pack_size-1){   //pass left
 <button onclick= "Draft_DTK()" style="fontSize:xx-large;">Draft DTK-DTK-DTK</button>
 <p id="debug7"> </p>
 <p id="debug6"> </p>
-<p id="debug"> v103</p>
+<p id="debug"> v104</p>
 <p id="debug2"> </p>
 <p id="debug3"> </p>
 <p id="debug4"> </p>
