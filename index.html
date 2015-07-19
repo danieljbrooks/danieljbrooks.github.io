@@ -156,26 +156,31 @@ function Pack(card_list){
   //Card text and ratings
   var div = document.getElementById("debug7");
   div.innerHTML = "";
-  pack_length=cur_draft.players[player_index].pack.pack_contents.length
-  for (i = 0; i < pack_length; i++) {
-    var cur_card = cur_draft.players[player_index].pack.pack_contents[i];
-    div.innerHTML= div.innerHTML + cur_card.name + "       " + cur_card.myrating + "<br>";
-  }
   
-  //Print card images
+  //Clear images
   document.getElementById("debug6").innerHTML = "";
-  for (var i = 0; i < pack_disp.pack_contents.length; i++) {
-    var img = document.createElement('img');
-    img.src = "DTK/".concat(pack_disp.pack_contents[i].image);
-    img.alt = "this is alternate text";
-    document.getElementById('debug6').appendChild(img);
- } 
+  pack_length=cur_draft.players[player_index].pack.pack_contents.length
+  
+ //display all
+ for (i = 0; i < pack_length; i++) {
+
+   var cur_card = cur_draft.players[player_index].pack.pack_contents[i];
+
+ //set card text
+   div.innerHTML= div.innerHTML + cur_card.name + "       " + cur_card.myrating + "<br>";
+
+ //card images
+   var img = document.createElement('img');
+   img.src = "DTK/".concat(cur_card.image);
+   img.alt = "this is alternate text";
+   document.getElementById('debug6').appendChild(img);
+ }
 } </script>
 
 <script> function Draft_DTK(){
   this.new_draft = new Draft(DTK, DTK, DTK, 8);
   Print_collection(this.new_draft, 0);
-  display_pack(this.new_draft.players[0].pack);
+  //display_pack(this.new_draft.players[0].pack);
 } </script>
 
 
