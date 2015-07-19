@@ -168,8 +168,8 @@ function Print_collection(cur_draft, player_index){
 //play a DTK draft
 function Draft_DTK(){
   this.new_draft = new Draft(DTK, DTK, DTK, 8);
-  Print_collection(new_draft, 0);
-  Print_collection(new_draft, 1);
+  Print_collection(this.new_draft, 0);
+  Print_collection(this.new_draft, 1);
 }
 </script>
 
@@ -181,11 +181,12 @@ function Draft_DTK(){
 </script>
 
 <button onclick="printPackBeta()" style="fontSize:xx-large;">Generate Pack</button>
-<button onclick="Print_collection(0)" style="fontSize:xx-large;">Print Collection</button>
+<button onclick="Draft_DTK" style="fontSize:xx-large;">Draft DTK-DTK-DTK</button>
+
 
 <p id="debug7"> </p>
 <p id="debug6"> </p>
-<p id="debug"> v78</p>
+<p id="debug"> v79</p>
 <p id="debug2"> </p>
 <p id="debug3"> </p>
 <p id="debug4"> </p>
