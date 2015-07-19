@@ -90,7 +90,7 @@
   this.set3=s3;
   
   //Add players
-  for (i = 1; i < num_players; i++) {
+  for (i = 0; i < num_players; i++) {
     //Needs to be debugged
     var pack_i=new Pack(this.set1);
     var drafter_i= {pack:pack_i,collection:[]};
@@ -225,7 +225,7 @@ if (cards_picked <= pack_size-1){   //pass left
 <button onclick= "Draft_DTK()" style="fontSize:xx-large;">Draft DTK-DTK-DTK</button>
 <p id="debug7"> </p>
 <p id="debug6"> </p>
-<p id="debug"> v104</p>
+<p id="debug"> v105</p>
 <p id="debug2"> </p>
 <p id="debug3"> </p>
 <p id="debug4"> </p>
