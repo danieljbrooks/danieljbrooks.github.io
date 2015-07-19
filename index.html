@@ -159,7 +159,7 @@ function Print_collection(player_index){
   pack_length=cur_draft.players[player_index].pack.pack_contents.length
   for (i = 0; i < pack_length; i++) {
     var cur_card = cur_draft.players[player_index].pack.pack_contents[i];
-    div.innerHTML= div.innerHTML + cur_card.name + "       " + cur_card.myrating + "\n";
+    div.innerHTML= div.innerHTML + cur_card.name + "       " + cur_card.myrating + "<br>";
   }
 }
 </script>
@@ -175,7 +175,7 @@ function Print_collection(player_index){
 <button onclick="Print_collection(0)" style="fontSize:xx-large;">Print Collection</button>
 <p id="debug7"> </p>
 <p id="debug6"> </p>
-<p id="debug"> v76</p>
+<p id="debug"> v77</p>
 <p id="debug2"> </p>
 <p id="debug3"> </p>
 <p id="debug4"> </p>
