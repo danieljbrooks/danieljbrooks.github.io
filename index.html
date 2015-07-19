@@ -5,7 +5,7 @@
 <!-- Include DTK cardlist -->
 <script src="DTK_2.js"></script>
 
-<!--Primary Javascript section--> 
+<!--Card class fields--> 
 <script>
 
 //Define the card class
@@ -95,8 +95,8 @@ function Pack(card_list){
 }
 </script>
 
-<script>
-function printPackBeta() {
+<!--The generate pack button--> 
+<script> function printPackBeta() {
     
     var pack1 = new Pack(DTK);
     
@@ -122,11 +122,8 @@ function printPackBeta() {
     //alert("Pack Created")
     document.getElementById("debug").innerHTML = sc;
     
-}
-</script>
-
-<script>
-function display_pack(pack_disp){
+} </script> 
+<script> function display_pack(pack_disp){
    document.getElementById("debug6").innerHTML = "";
    for (var i = 0; i < pack_disp.pack_contents.length; i++) {
       
@@ -137,16 +134,8 @@ function display_pack(pack_disp){
       document.getElementById('debug6').appendChild(img);
       
   }
-
-}
-
-</script>
-
-<script>
-//generate a draft object
-
-
-function Draft(set1, set2, set3, num_players){
+} </script>
+<script> function Draft(set1, set2, set3, num_players){
   
   //Create an array of players
   this.players=[]
@@ -158,11 +147,8 @@ function Draft(set1, set2, set3, num_players){
     var drafter_i= {pack:pack_i,collection:[]};
     this.players.push(drafter_i);
   }
-}
-
-//player has fields: {pack, collection}
-
-function Print_collection(cur_draft, player_index){
+} </script>
+<script> function Print_collection(cur_draft, player_index){
   //create a new draft
   //var cur_draft = new Draft(DTK, DTK, DTK, 8);
   
@@ -178,29 +164,21 @@ function Print_collection(cur_draft, player_index){
     var cur_card = cur_draft.players[player_index].pack.pack_contents[i];
     div.innerHTML= div.innerHTML + cur_card.name + "       " + cur_card.myrating + "<br>";
   }
-}
-</script>
-
-<script>
-//play a DTK draft
-function Draft_DTK(){
+} </script>
+<script> function Draft_DTK(){
   this.new_draft = new Draft(DTK, DTK, DTK, 8);
   Print_collection(this.new_draft, 0);
   display_pack(this.new_draft.players[0].pack);
-}
-</script>
+} </script>
 
 
+<!-- HTML source code -->
 <h1> Look, a button! Check back soon for the draft simulator!</h1>
 <p><a href="https://www.pythonanywhere.com/gists/905201f664f09b8a3b11/code.py/ipython2/">Draft Simulator (Pre-Alpha)!</a></p>
 <p>Interested? Contact danielbrooks20 at gmail dot com</p>
 
-</script>
-
 <button onclick= "printPackBeta()" style="fontSize:xx-large;">Generate Pack</button>
 <button onclick= "Draft_DTK()" style="fontSize:xx-large;">Draft DTK-DTK-DTK</button>
-
-
 <p id="debug7"> </p>
 <p id="debug6"> </p>
 <p id="debug"> v83</p>
