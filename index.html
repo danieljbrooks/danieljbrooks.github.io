@@ -145,9 +145,9 @@ function Draft(set1, set2, set3, num_players){
 
 //player has fields: {pack, collection}
 
-function Print_collection(player_index){
+function Print_collection(cur_draft, player_index){
   //create a new draft
-  var cur_draft = new Draft(DTK, DTK, DTK, 8);
+  //var cur_draft = new Draft(DTK, DTK, DTK, 8);
   
   //Define region to print to
   var div = document.getElementById("debug7");
@@ -164,6 +164,15 @@ function Print_collection(player_index){
 }
 </script>
 
+<script>
+//play a DTK draft
+function Draft_DTK(){
+  this.new_draft = new Draft(DTK, DTK, DTK, 8);
+  Print_collection(new_draft, 0);
+  Print_collection(new_draft, 1);
+}
+</script>
+
 
 <h1> Look, a button! Check back soon for the draft simulator!</h1>
 <p><a href="https://www.pythonanywhere.com/gists/905201f664f09b8a3b11/code.py/ipython2/">Draft Simulator (Pre-Alpha)!</a></p>
@@ -173,9 +182,10 @@ function Print_collection(player_index){
 
 <button onclick="printPackBeta()" style="fontSize:xx-large;">Generate Pack</button>
 <button onclick="Print_collection(0)" style="fontSize:xx-large;">Print Collection</button>
+
 <p id="debug7"> </p>
 <p id="debug6"> </p>
-<p id="debug"> v77</p>
+<p id="debug"> v78</p>
 <p id="debug2"> </p>
 <p id="debug3"> </p>
 <p id="debug4"> </p>
