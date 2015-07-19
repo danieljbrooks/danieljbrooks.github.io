@@ -203,8 +203,8 @@ if (cards_picked <= pack_size-1){   //pass left
  }
  
  //choose the card (does this propertly modify bot?)
-  bot.collection.push(draft.players[0].pack[best_index]); //pick the card
-  bot.pack.splice(best_index,1); //remove from pack
+  bot.collection.push(draft.players[0].pack.pack_contents[best_index]); //pick the card
+  bot.pack.pack_contents.splice(best_index,1); //remove from pack
  
 return bot;
 }</script>
@@ -223,7 +223,7 @@ return bot;
 <button onclick= "Draft_DTK()" style="fontSize:xx-large;">Draft DTK-DTK-DTK</button>
 <p id="debug7"> </p>
 <p id="debug6"> </p>
-<p id="debug"> v99</p>
+<p id="debug"> v100</p>
 <p id="debug2"> </p>
 <p id="debug3"> </p>
 <p id="debug4"> </p>
