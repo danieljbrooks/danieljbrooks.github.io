@@ -137,7 +137,7 @@
  if(card_index >= pack_length){
   return 0
 } else {
-  draft.player[0].collection.push(draft.player[0].pack[card_index]); //pick the card
+  draft.players[0].collection.push(draft.players[0].pack[card_index]); //pick the card
   draft.players[0].pack.splice(card_index,1); //remove from pack
 }
 
@@ -223,7 +223,7 @@ return bot;
 <button onclick= "Draft_DTK()" style="fontSize:xx-large;">Draft DTK-DTK-DTK</button>
 <p id="debug7"> </p>
 <p id="debug6"> </p>
-<p id="debug"> v91</p>
+<p id="debug"> v92</p>
 <p id="debug2"> </p>
 <p id="debug3"> </p>
 <p id="debug4"> </p>
