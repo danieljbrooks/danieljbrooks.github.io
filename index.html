@@ -138,9 +138,11 @@
  for (i = 0; i < collection_length; i++) {
    var cur_card = draft.players[0].collection[i];
  //card images
+ if (typeof cur_card != "undefined"){ //make sure card isn't undefined
    var img = document.createElement("img");
    img.src = "DTK/".concat(cur_card.image);
    document.getElementById("collection").appendChild(img);
+ }
  }
 } </script>
 
@@ -239,7 +241,7 @@ if (cards_picked <= pack_size-1){   //pass left
 <p id="debug7"> </p>
 <p id="cur_pack"> </p>
 <p id="debug6"> </p>
-<p id="debug"> v113</p>
+<p id="debug"> v114</p>
 <p id="debug2"> </p>
 <p id="debug3"> </p>
 <p id="debug4"> </p>
