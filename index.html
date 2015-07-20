@@ -182,9 +182,11 @@ if (cards_picked <= pack_size-1){   //pass left
   draft = pass_cards(+1);
 } else if (cards_picked == 3*pack_size) { //end draft
   //end draft
+  document.getElementById("debug9").innerHTML = "pick made!";
+  //Print_collection();
+  
   return;
 }
-document.getElementById("debug9").innerHTML = "pick made!";
 
 }</script>
 
@@ -243,7 +245,7 @@ document.getElementById("debug9").innerHTML = "pick made!";
 <p id="debug7"> </p>
 <p id="cur_pack"> </p>
 <p id="debug6"> </p>
-<p id="debug"> v116</p>
+<p id="debug"> v117</p>
 <p id="debug2"> </p>
 <p id="debug3"> </p>
 <p id="debug4"> </p>
