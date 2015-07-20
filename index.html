@@ -136,6 +136,7 @@
  }
 
  //display the collection
+ document.getElementById("collection_img").innerHTML="";
  collection_length=draft.players[0].pack.pack_contents.length
  for (i = 0; i < collection_length; i++) {
    var cur_card = draft.players[0].collection[i];
@@ -199,15 +200,15 @@ Print_collection();
   //don't pass for now
   
   //put cards in tmp_packs
-  //for (i=0; i<8; i++){
-  // var p_index = ((i+pass_amount)+ 8) % 8;
-  // tmp_packs[p_index] = draft.players[i].pack;
-  //}
+  for (i=0; i<8; i++){
+   var p_index = ((i+pass_amount)+ 8) % 8;
+   tmp_packs[p_index] = draft.players[i].pack;
+  }
   
   //return packs to the draft
-  //for (i=0; i<8; i++){
-  //  draft.players[i].pack=tmp_packs[i];
-  //}
+  for (i=0; i<8; i++){
+    draft.players[i].pack=tmp_packs[i];
+  }
   
   }</script>
 
@@ -248,7 +249,7 @@ Print_collection();
 <p id="debug7"> </p>
 <p id="cur_pack"> </p>
 <p id="debug6"> </p>
-<p id="debug"> v127</p>
+<p id="debug"> v128</p>
 <p id="debug2"> </p>
 <p id="debug3"> </p>
 <p id="debug4"> </p>
