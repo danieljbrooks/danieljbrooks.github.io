@@ -105,8 +105,20 @@
  div.innerHTML = "";
  
  //Clear images
- document.getElementById("debug6").innerHTML = "";
- pack_length=draft.players[0].pack.pack_contents.length
+ document.getElementById("cur_pack").innerHTML = "";
+ pack_length=draft.players[0].pack.pack_contents.length;
+ 
+ //set up the card images properly
+ for (i = 0; i < pack_length; i++) {
+   var cur_html = document.getElementById("cur_pack").innerHTML;
+   var extra_html = "<img src=draft.players[0].pack.pack_contents[" + i + "].image id=card_" + i + " onclick=make_pick(" + i + ") />";
+   document.getElementById("debug8").innerHTML = extra_html; //debug test
+   document.getElementById("cur_pack").innerHTML = cur_html + extra_html;
+   //card prototype
+   // <img src=draft.players[0].pack.pack_contents[i]>
+ }
+    //new method
+   //document.getElementById('imageDiv').innerHTML = '<img onclick = "make_pick(0)"  src="imageName.png" />';
  
  //display all
  for (i = 0; i < pack_length; i++) {
@@ -118,9 +130,6 @@
    img.src = "DTK/".concat(cur_card.image);
    img.onclick = "make_pick(0)"; //not going to work
    document.getElementById('debug6').appendChild(img);
-   
-   //new method
-   //document.getElementById('imageDiv').innerHTML = '<img onclick = "make_pick(0)"  src="imageName.png" />';
     
  }
 
@@ -196,7 +205,7 @@ if (cards_picked <= pack_size-1){   //pass left
  
  //output to screen 
  document.getElementById("debug8").innerHTML = bot_index;
- var pack_length=draft.players[bot_index].pack.pack_contents.length;
+ var pack_length=draft.players[bot_index].pack.pack_contents.length.image id=card_i "onclick=make_pick(i);
  
  //determine the highest rated card
  var best_rating=0;
@@ -228,8 +237,9 @@ if (cards_picked <= pack_size-1){   //pass left
 
 <button onclick= "Draft_DTK()" style="fontSize:xx-large;">Draft DTK-DTK-DTK</button>
 <p id="debug7"> </p>
+<p id="cur_pack"> </p>
 <p id="debug6"> </p>
-<p id="debug"> v107</p>
+<p id="debug"> v108</p>
 <p id="debug2"> </p>
 <p id="debug3"> </p>
 <p id="debug4"> </p>
