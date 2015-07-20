@@ -197,7 +197,7 @@ if (cards_picked <= pack_size-1){   //pass left
   //put cards in tmp_packs
   for (i=0; i<8; i++){
    var p_index = ((i+pass_amount)+ 8) % 8;
-   tmp_packs[i] = draft.players[i].pack;
+   tmp_packs[p_index] = draft.players[i].pack;
   }
   
   //return packs to the draft
@@ -245,7 +245,7 @@ if (cards_picked <= pack_size-1){   //pass left
 <p id="debug7"> </p>
 <p id="cur_pack"> </p>
 <p id="debug6"> </p>
-<p id="debug"> v119</p>
+<p id="debug"> v120</p>
 <p id="debug2"> </p>
 <p id="debug3"> </p>
 <p id="debug4"> </p>
