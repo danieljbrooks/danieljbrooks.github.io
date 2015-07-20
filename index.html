@@ -107,12 +107,11 @@
  //Clear images
  document.getElementById("cur_pack").innerHTML = "";
  pack_length=draft.players[0].pack.pack_contents.length;
- 
- //set up the card images properly
+ //Set up the card images properly
  for (i = 0; i < pack_length; i++) {
    var cur_html = document.getElementById("cur_pack").innerHTML;
    var extra_html = "<img src=" + "DTK/" + draft.players[0].pack.pack_contents[i].image +  " id=card_" + i + " onclick=make_pick(" + i + ") />";
-   document.getElementById("debug8").innerHTML = extra_html; //debug test
+   //document.getElementById("debug8").innerHTML = extra_html; //debug test
    document.getElementById("cur_pack").innerHTML = cur_html + extra_html;
    //card prototype
    // <img src=draft.players[0].pack.pack_contents[i]>
@@ -120,7 +119,8 @@
     //new method
    //document.getElementById('imageDiv').innerHTML = '<img onclick = "make_pick(0)"  src="imageName.png" />';
  
- //display all
+ 
+ //display all TEXT
  for (i = 0; i < pack_length; i++) {
    var cur_card = draft.players[0].pack.pack_contents[i];
  //set card text
@@ -133,8 +133,8 @@
     
  }
 
+ //display the collection
  collection_length=draft.players[0].pack.pack_contents.length
-  //display all
  for (i = 0; i < collection_length; i++) {
    var cur_card = draft.players[0].collection[i];
  //card images
@@ -239,7 +239,7 @@ if (cards_picked <= pack_size-1){   //pass left
 <p id="debug7"> </p>
 <p id="cur_pack"> </p>
 <p id="debug6"> </p>
-<p id="debug"> v111</p>
+<p id="debug"> v112</p>
 <p id="debug2"> </p>
 <p id="debug3"> </p>
 <p id="debug4"> </p>
