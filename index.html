@@ -111,7 +111,7 @@
  //set up the card images properly
  for (i = 0; i < pack_length; i++) {
    var cur_html = document.getElementById("cur_pack").innerHTML;
-   var extra_html = "<img src=draft.players[0].pack.pack_contents[" + i + "].image id=card_" + i + " onclick=make_pick(" + i + ") />";
+   var extra_html = "<img src=" + draft.players[0].pack.pack_contents[i].image +  "id=card_" + i + " onclick=make_pick(" + i + ") />";
    document.getElementById("debug8").innerHTML = extra_html; //debug test
    document.getElementById("cur_pack").innerHTML = cur_html + extra_html;
    //card prototype
@@ -239,7 +239,7 @@ if (cards_picked <= pack_size-1){   //pass left
 <p id="debug7"> </p>
 <p id="cur_pack"> </p>
 <p id="debug6"> </p>
-<p id="debug"> v108</p>
+<p id="debug"> v109</p>
 <p id="debug2"> </p>
 <p id="debug3"> </p>
 <p id="debug4"> </p>
