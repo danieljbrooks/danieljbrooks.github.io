@@ -116,7 +116,7 @@
  //card images
    var img = document.createElement("img");
    img.src = "DTK/".concat(cur_card.image);
-   document.getElementById("img").onclick = "make_pick(0)"; //not going to work
+   img.onclick = "make_pick(0)"; //not going to work
    document.getElementById('debug6').appendChild(img);
    
    //new method
@@ -229,7 +229,7 @@ if (cards_picked <= pack_size-1){   //pass left
 <button onclick= "Draft_DTK()" style="fontSize:xx-large;">Draft DTK-DTK-DTK</button>
 <p id="debug7"> </p>
 <p id="debug6"> </p>
-<p id="debug"> v106</p>
+<p id="debug"> v107</p>
 <p id="debug2"> </p>
 <p id="debug3"> </p>
 <p id="debug4"> </p>
