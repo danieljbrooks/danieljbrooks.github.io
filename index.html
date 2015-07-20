@@ -194,16 +194,18 @@ if (cards_picked <= pack_size-1){   //pass left
 <script> function pass_cards(pass_amount){
   var tmp_packs=['1', '2', '3', '4', '5', '6', '7', '8']; //dummy initialization
   
+  //don't pass for now
+  
   //put cards in tmp_packs
-  for (i=0; i<8; i++){
-   var p_index = ((i+pass_amount)+ 8) % 8;
-   tmp_packs[p_index] = draft.players[i].pack;
-  }
+  //for (i=0; i<8; i++){
+  // var p_index = ((i+pass_amount)+ 8) % 8;
+  // tmp_packs[p_index] = draft.players[i].pack;
+  //}
   
   //return packs to the draft
-  for (i=0; i<8; i++){
-    draft.players[i].pack=tmp_packs[i];
-  }
+  //for (i=0; i<8; i++){
+  //  draft.players[i].pack=tmp_packs[i];
+  //}
   
   }</script>
 
@@ -245,7 +247,7 @@ if (cards_picked <= pack_size-1){   //pass left
 <p id="debug7"> </p>
 <p id="cur_pack"> </p>
 <p id="debug6"> </p>
-<p id="debug"> v120</p>
+<p id="debug"> v121</p>
 <p id="debug2"> </p>
 <p id="debug3"> </p>
 <p id="debug4"> </p>
