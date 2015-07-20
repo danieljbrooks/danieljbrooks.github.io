@@ -106,7 +106,7 @@
  
  //Clear images
  document.getElementById("cur_pack").innerHTML = "";
- pack_length=draft.players[0].pack.pack_contents.length;
+ pack_length = draft.players[0].pack.pack_contents.length;
  //Set up the card images properly
  for (i = 0; i < pack_length; i++) {
    var cur_html = document.getElementById("cur_pack").innerHTML;
@@ -237,9 +237,6 @@ Print_collection();
   Print_collection();
 } </script>
 
-<script> draft = new Draft(DTK, DTK, DTK, 8); Print_collection(); </script> <!-- test auto-starting draft -->
-
-
 <!-- HTML source code -->
 <h1> Look, a button! Check back soon for the draft simulator!</h1>
 <p><a href="https://www.pythonanywhere.com/gists/905201f664f09b8a3b11/code.py/ipython2/">Draft Simulator (Pre-Alpha)!</a></p>
@@ -249,7 +246,7 @@ Print_collection();
 <p id="debug7"> </p>
 <p id="cur_pack"> </p>
 <p id="debug6"> </p>
-<p id="debug"> v124</p>
+<p id="debug"> v125</p>
 <p id="debug2"> </p>
 <p id="debug3"> </p>
 <p id="debug4"> </p>
