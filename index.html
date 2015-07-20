@@ -5,8 +5,10 @@
 <!-- Include DTK cardlist -->
 <script src="DTK_2.js"></script>
 
+<!-- Initialize -->
+<script>var draft = "..."; </script>
+<script> var pack_size=15; </script>
 
-<script> var draft = "...";  var pack_size=15; </script>
 <script>function Pack(card_list){
   this.pack_contents=[];
   
@@ -105,8 +107,8 @@
  div.innerHTML = "";
  
  //Clear images
- document.getElementById("cur_pack").innerHTML = "";
  pack_length = draft.players[0].pack.pack_contents.length;
+ document.getElementById("cur_pack").innerHTML = "";
  //Set up the card images properly
  for (i = 0; i < pack_length; i++) {
    var cur_html = document.getElementById("cur_pack").innerHTML;
@@ -165,21 +167,21 @@ for (i = 1; i < 8; i++) {
 //now pass the remaining cards
 var cards_picked = draft.players[0].collection.length
 if (cards_picked <= pack_size-1){   //pass left
-  draft = pass_cards(+1);
+  pass_cards(+1);
 } else if (cards_picked == pack_size) { //generate pack 2
  for (i = 0; i < 8; i++) { 
   var pack_2=new Pack(draft.set2);
   players[i].pack=pack_2;
  }
 } else if (cards_picked <= 2*pack_size-1) {  //pass right
-  draft = pass_cards(-1);
+  pass_cards(-1);
 } else if (cards_picked == 2 * pack_size) {   //generate pack 3
  for (i = 0; i < 8; i++) { 
   var pack_3=new Pack(draft.set3);
   players[i].pack=pack_3;
  }
 } else if (cards_picked <= 3*pack_size-1) { //pass left
-  draft = pass_cards(+1);
+  pass_cards(+1);
 } else if (cards_picked == 3*pack_size) { //end draft
   //end draft
   return;
@@ -246,7 +248,7 @@ Print_collection();
 <p id="debug7"> </p>
 <p id="cur_pack"> </p>
 <p id="debug6"> </p>
-<p id="debug"> v125</p>
+<p id="debug"> v126</p>
 <p id="debug2"> </p>
 <p id="debug3"> </p>
 <p id="debug4"> </p>
