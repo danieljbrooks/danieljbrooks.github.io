@@ -63,7 +63,7 @@
   while(this.pack_contents.length<pack_size && its<10000){
     its=its+1;
     
-    //choose a random card in DTK
+    //choose a random card in the current set
     var card_roll=Math.floor((Math.random() * cards_in_set));
     var new_card = card_list[card_roll];
     //Check if card in pack contents
@@ -104,6 +104,7 @@
   this.set1=s1;
   this.set2=s2;
   this.set3=s3;
+  this.cur_set=s1;
   
   //Add players
   for (i = 0; i < num_players; i++) {
@@ -113,6 +114,18 @@
     this.players.push(drafter_i);
   }
 } </script>
+
+<script> function get_setname(pick_in_draft){
+  if (pick_in_draft <= pack_size){
+    return draft.set1;
+  }  else if (pick_in_draft <= 2*pack_size){
+    return draft.set2;
+  }  else {
+    return draft.set3;
+  }
+}
+
+</script>
 
 <script> function Print_collection(){
  
@@ -126,7 +139,7 @@
  //Set up the card images properly
  for (i = 0; i < pack_length; i++) {
    var cur_html = document.getElementById("cur_pack").innerHTML;
-   var extra_html = "<img src=" + "DTK/" + draft.players[0].pack.pack_contents[i].image +  " id=card_" + i + " onclick=make_pick(" + i + ") />";
+   var extra_html = "<img src=" + "Images/" + draft.cur_set +/" + draft.players[0].pack.pack_contents[i].image +  " id=card_" + i + " onclick=make_pick(" + i + ") />";
    //document.getElementById("debug8").innerHTML = extra_html; //debug test
    document.getElementById("cur_pack").innerHTML = cur_html + extra_html;
    //card prototype
@@ -157,7 +170,7 @@
  //card images
  if (typeof cur_card != "undefined"){ //make sure card isn't undefined
    var img = document.createElement("img");
-   img.src = "DTK/".concat(cur_card.image);
+   img.src = "Images/" + get_setname(i) + "/".concat(cur_card.image);
    document.getElementById("collection_img").appendChild(img);
  }
  }
@@ -187,6 +200,7 @@ if (cards_picked <= pack_size-1){   //pass left
  for (i = 0; i < 8; i++) { 
   var pack_2=new Pack(draft.set2);
   draft.players[i].pack=pack_2;
+  draft.cur_set=set2;
  }
 } else if (cards_picked <= 2*pack_size-1) {  //pass right
   pass_cards(-1);
@@ -194,6 +208,7 @@ if (cards_picked <= pack_size-1){   //pass left
  for (i = 0; i < 8; i++) { 
   var pack_3=new Pack(draft.set3);
   draft.players[i].pack=pack_3;
+  draft.cur_set=set3;
  }
 } else if (cards_picked <= 3*pack_size-1) { //pass left
   pass_cards(+1);
@@ -253,18 +268,25 @@ Print_collection();
   Print_collection();
 } </script>
 
+<script> function Draft_ORI(){
+  draft = new Draft(ORI, ORI, ORI, 8);
+  Print_collection();
+} </script>
+
 <!-- HTML source code -->
 <h1> Draft Simulator - now in beta!</h1>
 <p>Interested? Contact danielbrooks20 at gmail dot com</p>
 <!-- <p><a href="https://www.pythonanywhere.com/gists/905201f664f09b8a3b11/code.py/ipython2/">Draft Simulator (python version)!</a></p> --->
-<button onclick= "Draft_DTK()" style="fontSize:xx-large;">Draft DTK-DTK-DTK</button>
+<p><button onclick= "Draft_DTK()" style="fontSize:xx-large;">Draft DTK-DTK-DTK</button> </p>
+<p><button onclick= "Draft_ORI()" style="fontSize:xx-large;">Draft ORI-ORI-ORI</button> </p>
+
 <p id="cur_pack"> </p>
 <br>
 <p id="collection_img"> </p>
 <br>
 <p id="debug7"> </p>
 <p id="debug6"> </p>
-<p id="debug"> v135</p>
+<p id="debug"> v136</p>
 <p id="debug2"> </p>
 <p id="debug3"> </p>
 <p id="debug4"> </p>
