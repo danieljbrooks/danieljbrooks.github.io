@@ -16,7 +16,7 @@
 <body>
 
 <!-- Include DTK cardlist -->
-<script src="DTK_2.js"></script>
+<script src="DTK.js"></script>
 <script src="ORI.js"></script>
 
 <!-- Initialize -->
@@ -115,17 +115,6 @@
   }
 } </script>
 
-<script> function get_setname(pick_in_draft){
-  if (pick_in_draft <= pack_size){
-    return draft.set1;
-  }  else if (pick_in_draft <= 2*pack_size){
-    return draft.set2;
-  }  else {
-    return draft.set3;
-  }
-}
-
-</script>
 
 <script> function Print_collection(){
  
@@ -139,7 +128,7 @@
  //Set up the card images properly
  for (i = 0; i < pack_length; i++) {
    var cur_html = document.getElementById("cur_pack").innerHTML;
-   var extra_html = "<img src=" + "Images/" + draft.cur_set + "/" + draft.players[0].pack.pack_contents[i].image +  " id=card_" + i + " onclick=make_pick(" + i + ") />";
+   var extra_html = "<img src=" + draft.players[0].pack.pack_contents[i].image +  " id=card_" + i + " onclick=make_pick(" + i + ") />";
    //document.getElementById("debug8").innerHTML = extra_html; //debug test
    document.getElementById("cur_pack").innerHTML = cur_html + extra_html;
    //card prototype
@@ -170,7 +159,7 @@
  //card images
  if (typeof cur_card != "undefined"){ //make sure card isn't undefined
    var img = document.createElement("img");
-   img.src = "Images/" + get_setname(i) + "/".concat(cur_card.image);
+   img.src = cur_card.image;
    document.getElementById("collection_img").appendChild(img);
  }
  }
@@ -286,7 +275,7 @@ Print_collection();
 <br>
 <p id="debug7"> </p>
 <p id="debug6"> </p>
-<p id="debug"> v137</p>
+<p id="debug"> v138</p>
 <p id="debug2"> </p>
 <p id="debug3"> </p>
 <p id="debug4"> </p>
