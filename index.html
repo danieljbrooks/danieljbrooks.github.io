@@ -104,8 +104,7 @@
   this.set1=s1;
   this.set2=s2;
   this.set3=s3;
-  this.cur_set=s1;
-  
+
   //Add players
   for (i = 0; i < num_players; i++) {
     //Needs to be debugged
@@ -189,7 +188,6 @@ if (cards_picked <= pack_size-1){   //pass left
  for (i = 0; i < 8; i++) { 
   var pack_2=new Pack(draft.set2);
   draft.players[i].pack=pack_2;
-  draft.cur_set=set2;
  }
 } else if (cards_picked <= 2*pack_size-1) {  //pass right
   pass_cards(-1);
@@ -197,7 +195,6 @@ if (cards_picked <= pack_size-1){   //pass left
  for (i = 0; i < 8; i++) { 
   var pack_3=new Pack(draft.set3);
   draft.players[i].pack=pack_3;
-  draft.cur_set=set3;
  }
 } else if (cards_picked <= 3*pack_size-1) { //pass left
   pass_cards(+1);
@@ -275,7 +272,7 @@ Print_collection();
 <br>
 <p id="debug7"> </p>
 <p id="debug6"> </p>
-<p id="debug"> v138</p>
+<p id="debug"> v139</p>
 <p id="debug2"> </p>
 <p id="debug3"> </p>
 <p id="debug4"> </p>
