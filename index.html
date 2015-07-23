@@ -87,7 +87,7 @@
       } else if (rarity_nc=="R" && rare < 1 && mythic==1){
       	this.pack_contents.push(card_list[card_roll]);
       	rare=rare+1;
-      } else if (rarity_nc=="U" && uncommon < 3 && rare==1){
+      } else if (rarity_nc=="U" && uncommon < 3 && rare==1 && mythic==1){
       	this.pack_contents.push(card_list[card_roll]);
       	uncommon=uncommon+1;
       } else if (rarity_nc=="C" && common < pack_size-4 && uncommon==3){
@@ -273,7 +273,7 @@ Print_collection();
 <br>
 <p id="debug7"> </p>
 <p id="debug6"> </p>
-<p id="debug"> v143</p>
+<p id="debug"> v144</p>
 <p id="debug2"> </p>
 <p id="debug3"> </p>
 <p id="debug4"> </p>
