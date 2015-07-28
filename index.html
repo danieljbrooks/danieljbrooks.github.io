@@ -25,7 +25,7 @@
 <script> function clear_screen(){
   var display_element = document.getElementsByClassName('display'), i;
   for (i = 0; i < display_element.length; i += 1) {
-      appBanners[i].style.visibility = 'hidden';
+      display_element[i].style.visibility = 'hidden';
   }
 }
 </script>
@@ -34,7 +34,7 @@
 <script> function clear_screen(){
   var display_element = document.getElementsByClassName('display'), i;
   for (i = 0; i < display_element.length; i += 1) {
-      appBanners[i].style.visibility = 'visible';
+      display_element[i].style.visibility = 'visible';
   }
 }
 </script>
