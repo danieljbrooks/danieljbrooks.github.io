@@ -21,6 +21,24 @@
 <script src="DTK.js"></script>
 <script src="ORI.js"></script>
 
+<!-- Clear the screen  -->
+<script> function clear_screen(){
+  var display_elements = document.getElementsByClassName('display'), i;
+  for (i = 0; i < display_element.length; i += 1) {
+      appBanners[i].style.visibility = 'hidden';
+  }
+}
+</script>
+
+<!-- Show the screen  -->
+<script> function clear_screen(){
+  var display_elements = document.getElementsByClassName('display'), i;
+  for (i = 0; i < display_element.length; i += 1) {
+      appBanners[i].style.visibility = 'visible';
+  }
+}
+</script>
+
 <!-- Initialize -->
 <script>var draft = "..."; </script>
 <script> var pack_size=15; </script>
@@ -276,7 +294,6 @@ Print_collection();
 
 
   <li>sealed</li>
-  
   <li> methodology
     <ul>
       <li>card quality</li>
@@ -285,25 +302,28 @@ Print_collection();
     </ul>
   </li>
   <li>about</li>
+  <li onclick="clear_screen()"> clear screen </li>
+  <li onclick="show_screen()"> show screen </li>
+
 </ul>
 
 <!-- <p><a href="https://www.pythonanywhere.com/gists/905201f664f09b8a3b11/code.py/ipython2/">Draft Simulator (python version)!</a></p> --->
 <p><button onclick= "Draft_DTK()" style="fontSize:xx-large;">Draft DTK-DTK-DTK</button>
 <button onclick= "Draft_ORI()" style="fontSize:xx-large;">Draft ORI-ORI-ORI</button> </p>
 
-<p id="cur_pack"> </p>
+<p id="cur_pack" class="display"> </p>
 <br>
-<p id="collection_img"> </p>
+<p id="collection_img" class="display"> </p>
 <br>
-<p id="debug7"> </p>
-<p id="debug6"> </p>
-<p id="debug"> v151</p>
-<p id="debug2"> </p>
-<p id="debug3"> </p>
-<p id="debug4"> </p>
-<p id="debug5"> </p>
-<p id="debug8"> </p>
-<p id="debug9"> </p>
+<p id="debug7" class="display"> </p>
+<p id="debug6" class="display"> </p>
+<p id="debug" class="display"> v152</p>
+<p id="debug2" class="display"> </p>
+<p id="debug3" class="display"> </p>
+<p id="debug4" class="display"> </p>
+<p id="debug5" class="display"> </p>
+<p id="debug8" class="display"> </p>
+<p id="debug9" class="display"> </p>
 
 </body>
 </html>
