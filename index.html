@@ -137,13 +137,13 @@
  //display information in table
  var div = document.getElementById("pack_text");
  div.innerHTML = "<table> <tr><th>Name</th>";
- div.innerHTML=div.innerHTML+ "<th>Rating</th></tr>";
+ div.innerHTML.append("<th>Rating</th></tr>");
  for (i = 0; i < pack_length; i++) {
    var cur_card = draft.players[0].pack.pack_contents[i];
-   div.innerHTML= div.innerHTML + " &lt;tr&gt; &lt;td&gt;" + cur_card.name + "&lt;/td&gt; &lt;td&gt;" + cur_card.myrating + " &lt;/td&gt; &lt;/tr&gt"; 
-  //div.innerHTML= div.innerHTML + "<tr><th>" + cur_card.name + "</th><th>" + cur_card.myrating + " </th></tr>";
+  //div.innerHTML= div.innerHTML + " &lt;tr&gt; &lt;td&gt;" + cur_card.name + "&lt;/td&gt; &lt;td&gt;" + cur_card.myrating + " &lt;/td&gt; &lt;/tr&gt"; 
+  div.innerHTML.append("<tr><th>" + cur_card.name + "</th><th>" + cur_card.myrating + " </th></tr>");
  }
- div.innerHTML= div.innerHTML + "&lt;/table&gt;";
+ div.innerHTML.append("</table>";
 
 //just set the table to peas and stuff
 //div.innerHTML="<table><tr><th>One</th><th>Two</th></tr><tr><td>Apples</td><td>Carrots</td></tr><tr><td>Oranges</td><td>Potato</td></tr><tr><td>Pears</td><td>Peas</td></tr></table>";
