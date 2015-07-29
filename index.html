@@ -159,8 +159,13 @@ table.innerHTML=""; //clear the table
    // Add some text to the new cells:
    var cur_card = draft.players[0].pack.pack_contents[i];
    cell1.innerHTML = cur_card.name;
+   cell1.onclick(make_pick(i)); //is this correct?
    cell2.innerHTML = cur_card.myrating;
  }
+  // var cur_html = document.getElementById("pack_images").innerHTML;
+  // var extra_html = "<img src=" + draft.players[0].pack.pack_contents[i].image +  " id=card_" + i + " onclick=make_pick(" + i + ") />";
+  // document.getElementById("pack_images").innerHTML = cur_html + extra_html;
+
 
  //create the header text
  var header = table.createTHead();
@@ -339,7 +344,7 @@ Print_collection();
 </div>
 <br>
 
-<p> v182</p>
+<p> v183</p>
 
 </body>
 </html>
