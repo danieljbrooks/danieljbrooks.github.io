@@ -8,14 +8,14 @@ body {
 
 #pack_box
 {
-   width:67%; /* or whatever width you want. */
+   width:65%; /* or whatever width you want. */
    float: left;
    border: 1px solid red;
 }
 
 #pack_text_container
 {
-   width:33%; /* or whatever width you want. */
+   width:30%; /* or whatever width you want. */
    float: left;
    border: 1px solid black;
 }
