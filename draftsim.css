@@ -12,6 +12,8 @@ body {
    max-width:500px; /* or whatever width you want. */
    display: inline-block;
    padding: 5px 10px 5px;
+   text-align: center;
+
 
 }
 
@@ -21,6 +23,8 @@ body {
    max-width:400px; /* or whatever width you want. */
    display: inline-block;
    padding: 5px 10px 5px;
+   text-align: left;
+
 
 }
 
