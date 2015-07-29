@@ -9,7 +9,7 @@ body {
 #pack_box
 {
    padding: 0px;
-   width:75%; /* or whatever width you want. */
+   width:74%; /* or whatever width you want. */
    float: left;
    border: 1px solid red;
 }
