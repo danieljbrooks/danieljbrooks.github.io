@@ -8,22 +8,15 @@ body {
 
 #pack_box
 {
-   width:600px; /* or whatever width you want. */
-   max-width:600px; /* or whatever width you want. */
-   display: inline-block;
-   padding: 5px 10px 5px;
-   text-align: center;
-   float: right;
-   border: 1px solid black;
+   width:67%; /* or whatever width you want. */
+   float: left;
+   border: 1px solid red;
 }
 
 #pack_text_container
 {
-   width:400px; /* or whatever width you want. */
-   max-width:400px; /* or whatever width you want. */
-   display: inline-block;
-   padding: 5px 10px 5px;
-   text-align: left;
+   width:33%; /* or whatever width you want. */
+   float: left;
    border: 1px solid black;
 
 
