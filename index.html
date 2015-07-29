@@ -140,11 +140,11 @@
  for (i = 0; i < pack_length; i++) {
    var cur_card = draft.players[0].pack.pack_contents[i];
   //add card text, rating, use HTML code for brackets
-   div.innerHTML= div.innerHTML + " &lt;tr&gt; &lt;td&gt;" + cur_card.name + "&lt;/td&gt; &lt;td&gt;" + cur_card.myrating + " &lt;/td&gt; &lt;/tr&gt;";
- 
-   if (i==pack_length-1){
+  /* div.innerHTML= div.innerHTML + " &lt;tr&gt; &lt;td&gt;" + cur_card.name + "&lt;/td&gt; &lt;td&gt;" + cur_card.myrating + " &lt;/td&gt; &lt;/tr&gt;"; */
+  div.innerHTML= div.innerHTML + "<tr> <td>" + cur_card.name + "</td> <td>" + cur_card.myrating + " </td> </tr>";
+ }
+ if (i==(pack_length-1)){
      div.innerHTML= div.innerHTML + "</table>";
-   }
  }
 
 
@@ -332,7 +332,7 @@ Print_collection();
 </div>
 <br>
 
-<p> v175</p>
+<p> v176</p>
 
 </body>
 </html>
