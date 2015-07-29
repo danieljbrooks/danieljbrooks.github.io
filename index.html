@@ -140,9 +140,13 @@
  for (i = 0; i < pack_length; i++) {
    var cur_card = draft.players[0].pack.pack_contents[i];
   //add card text, rating
-   div.innerHTML= div.innerHTML + "<tr> <td>" + cur_card.name + "</td> <td>" + cur_card.myrating + "</td> </tr>";
+   div.innerHTML= div.innerHTML + " <tr> <td>" + cur_card.name + "</td> <td>" + cur_card.myrating + " </td> </tr>";
+ 
+   if (i==pack_length-1){
+     div.innerHTML= div.innerHTML + "</table>";
+   }
  }
- div.innerHTML= div.innerHTML + "</table>";
+
 
  //display the collection
  document.getElementById("collection_img").innerHTML="";
