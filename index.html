@@ -136,6 +136,9 @@
    var cur_html = document.getElementById("pack_images").innerHTML;
    var extra_html = "<img src=" + draft.players[0].pack.pack_contents[i].image +  " id=card_" + i + " onclick=make_pick(" + i + ") />";
    document.getElementById("pack_images").innerHTML = cur_html + extra_html;
+
+  if (i%5==4){document.getElementById("pack_images").innerHTML = cur_html + " <br> ";} /*adding line breaks, terribly*/
+
  }
  
  //display all TEXT
@@ -309,7 +312,7 @@ Print_collection();
 <p id="collection_img" class="display"> </p>
 <br>
 
-<p> v165 </p>
+<p> v166</p>
 
 </body>
 </html>
