@@ -18,9 +18,12 @@ body {
    width:33%; /* or whatever width you want. */
    float: left;
    border: 1px solid black;
-
-
-
+}
+#collection_container
+{
+   width:100%; /* or whatever width you want. */
+   float: left;
+   border: 1px solid blue;
 }
 
 
