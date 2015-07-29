@@ -162,13 +162,16 @@ table.innerHTML=""; //clear the table
    cell2.innerHTML = cur_card.myrating;
  }
 
-// Create an empty <tr> element and add it to the 1st position of the table:
-var row = table.insertRow(0);
-// Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
-var head1 = row.createTHead(0);
-var head2 = row.createTHead(1);
-head1.innerHTML = "Name";
-head2.innerHTML = "Rating";
+ //create the header text
+ var header = table.createTHead();
+ var row = header.insertRow(0);
+ // Create an empty <tr> element and add it to the 1st position of the table:
+ var row = table.insertRow(0);
+ // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
+ var head1 = row.insert(0);
+ var head2 = row.createTHead(1);
+ head1.innerHTML = "Name";
+ head2.innerHTML = "Rating";
 
 //just set the table to peas and stuff
 //div.innerHTML="<table><tr><th>One</th><th>Two</th></tr><tr><td>Apples</td><td>Carrots</td></tr><tr><td>Oranges</td><td>Potato</td></tr><tr><td>Pears</td><td>Peas</td></tr></table>";
@@ -337,7 +340,7 @@ Print_collection();
 </div>
 <br>
 
-<p> v180</p>
+<p> v181</p>
 
 </body>
 </html>
