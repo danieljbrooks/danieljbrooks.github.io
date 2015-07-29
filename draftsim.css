@@ -1,6 +1,6 @@
 body {
   font-family: 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  padding: 10px 50px 10px;
+  padding: 3px 30px 3px;
   font-size: 24px;
   text-align: center;
   background: #FFFAFA;
@@ -8,13 +8,15 @@ body {
 
 #pack_box
 {
-   width:31%; /* or whatever width you want. */
+   padding: 1px;
+   width:65%; /* or whatever width you want. */
    float: left;
    border: 1px solid red;
 }
 
 #pack_text_container
 {
+   padding: 1px;
    width:30%; /* or whatever width you want. */
    float: left;
    border: 1px solid black;
