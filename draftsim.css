@@ -6,6 +6,21 @@ body {
   background: #FFFAFA;
 }
 
+#pack_box
+{
+   width:500px; /* or whatever width you want. */
+   max-width:500px; /* or whatever width you want. */
+   display: inline-block;
+}
+
+#pack_text_container
+{
+   width:400px; /* or whatever width you want. */
+   max-width:400px; /* or whatever width you want. */
+   display: inline-block;
+}
+
+
 my_p {
   font-family: 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   display: inline;
