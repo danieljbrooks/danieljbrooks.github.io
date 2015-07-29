@@ -8,11 +8,13 @@ body {
 
 #pack_box
 {
-   width:500px; /* or whatever width you want. */
-   max-width:500px; /* or whatever width you want. */
+   width:600px; /* or whatever width you want. */
+   max-width:600px; /* or whatever width you want. */
    display: inline-block;
    padding: 5px 10px 5px;
    text-align: center;
+   float: right;
+
 
 
 }
