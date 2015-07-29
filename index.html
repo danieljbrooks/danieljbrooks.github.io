@@ -146,11 +146,10 @@
  div.innerHTML.append("</table>");
 */
 
-var div = document.getElementById("pack_text");
-
-
 // Find a <table> element with id="myTable":
 var table = document.getElementById("pack_text");
+table.innerHTML=""; //clear the table
+
 // Create an empty <tr> element and add it to the 1st position of the table:
 var row = table.insertRow(0);
 // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
@@ -163,7 +162,9 @@ cell2.innerHTML = "Rating";
  for (i = 0; i < pack_length; i++) {
    var cell1 = row.insertCell(0);
    var cell2 = row.insertCell(1);
+   
    // Add some text to the new cells:
+   var cur_card = draft.players[0].pack.pack_contents[i];
    cell1.innerHTML = cur_card.name;
    cell2.innerHTML = cur_card.myrating;
  }
@@ -335,7 +336,7 @@ Print_collection();
 </div>
 <br>
 
-<p> v177</p>
+<p> v178</p>
 
 </body>
 </html>
