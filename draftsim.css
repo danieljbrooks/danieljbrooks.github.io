@@ -19,10 +19,10 @@ body {
    float: left;
    border: 1px solid black;
 }
+
 #collection_container
 {
-   width:100%; /* or whatever width you want. */
-   float: left;
+   clear:both;
    border: 1px solid blue;
 }
 
