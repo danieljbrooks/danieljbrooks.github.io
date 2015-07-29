@@ -123,10 +123,6 @@
 
 <script> function Print_collection(){
  
- //Card text and ratings
- var div = document.getElementById("pack_text");
- div.innerHTML = "";
- 
  //Clear images
  pack_length = draft.players[0].pack.pack_contents.length;
  document.getElementById("pack_images").innerHTML = "";
@@ -138,14 +134,15 @@
    document.getElementById("pack_images").innerHTML = cur_html + extra_html;
  }
  
- //display all TEXT
+ //display information in table
+ var div = document.getElementById("pack_text");
+ div.innerHTML = "<table> <tr><th>Name</th> <th>Rating</th></tr>";
  for (i = 0; i < pack_length; i++) {
    var cur_card = draft.players[0].pack.pack_contents[i];
- 
-  //set card text
-   div.innerHTML= div.innerHTML + cur_card.name + "       " + cur_card.myrating + "<br>";
-    
+  //add card text, rating
+   div.innerHTML= div.innerHTML + "<tr><td>" + cur_card.name + "</td><td>" + cur_card.myrating + "</td></tr>";
  }
+ div.innerHTML= div.innerHTML + "</table>";
 
  //display the collection
  document.getElementById("collection_img").innerHTML="";
