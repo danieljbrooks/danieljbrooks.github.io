@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
+
+<!-- css style sheet -->  
 <link rel="stylesheet" type="text/css" href="draftsim.css">
 
+<!-- google analytics -->
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -13,6 +15,7 @@
   ga('create', 'UA-56289140-3', 'auto');
   ga('send', 'pageview');
 </script>
+
 </head>
 
 <body>
@@ -41,7 +44,7 @@
 
 <!-- Initialize -->
 <script>var draft = "..."; </script>
-<script> var pack_size=15; </script>
+<script> var pack_size=14; </script>
 
 <script>function Pack(card_list){
   this.pack_contents=[];
@@ -54,23 +57,7 @@
   
   //Determine number of cards in set
   var cards_in_set=card_list.length
-  document.getElementById("debug2").innerHTML = cards_in_set;  //remove to test
-  //document.getElementById("debug2").innerHTML = "updating debug 2";
-  
-  /*
-  //add a common to start out the pack
-  need_common=true;
-  while(need_common){
-    card_roll=Math.floor((Math.random() * cards_in_set));
-    new_card = card_list[card_roll];
-    if (new_card.rarity=="C"){
-    	this.pack_contents.push(new_card);
-        common=common+1;
-        need_common=false;
-    }
-  }
-  */
-  
+
   //figure out if mythic or rare
   mythic_roll=Math.floor((Math.random() * 121) + 1);
   if (mythic_roll>15){
@@ -99,7 +86,6 @@
     
     //Determine card rarity and add new card to pack if possible, in rarity order
     rarity_nc=new_card.rarity
-    document.getElementById("debug5").innerHTML = rarity_nc;
     if (card_in_pack<1){
       if (rarity_nc=="M" && mythic < 1){
       	this.pack_contents.push(card_list[card_roll]);
@@ -128,7 +114,6 @@
 
   //Add players
   for (i = 0; i < num_players; i++) {
-    //Needs to be debugged
     var pack_i=new Pack(this.set1);
     var drafter_i= {pack:pack_i,collection:[]};
     this.players.push(drafter_i);
@@ -139,35 +124,26 @@
 <script> function Print_collection(){
  
  //Card text and ratings
- var div = document.getElementById("debug7");
+ var div = document.getElementById("pack_text");
  div.innerHTML = "";
  
  //Clear images
  pack_length = draft.players[0].pack.pack_contents.length;
- document.getElementById("cur_pack").innerHTML = "";
+ document.getElementById("pack_images").innerHTML = "";
+ 
  //Set up the card images properly
  for (i = 0; i < pack_length; i++) {
-   var cur_html = document.getElementById("cur_pack").innerHTML;
+   var cur_html = document.getElementById("pack_images").innerHTML;
    var extra_html = "<img src=" + draft.players[0].pack.pack_contents[i].image +  " id=card_" + i + " onclick=make_pick(" + i + ") />";
-   //document.getElementById("debug8").innerHTML = extra_html; //debug test
-   document.getElementById("cur_pack").innerHTML = cur_html + extra_html;
-   //card prototype
-   // <img src=draft.players[0].pack.pack_contents[i]>
+   document.getElementById("pack_images").innerHTML = cur_html + extra_html;
  }
-    //new method
-   //document.getElementById('imageDiv').innerHTML = '<img onclick = "make_pick(0)"  src="imageName.png" />';
- 
  
  //display all TEXT
  for (i = 0; i < pack_length; i++) {
    var cur_card = draft.players[0].pack.pack_contents[i];
- //set card text
+ 
+  //set card text
    div.innerHTML= div.innerHTML + cur_card.name + "       " + cur_card.myrating + "<br>";
- //card images
-   //var img = document.createElement("img");
-   //img.src = "DTK/".concat(cur_card.image);
-   //img.onclick = "make_pick(0)"; //not going to work
-   //document.getElementById('debug6').appendChild(img);
     
  }
 
@@ -176,6 +152,7 @@
  collection_length=draft.players[0].collection.length
  for (i = 0; i < collection_length; i++) {
    var cur_card = draft.players[0].collection[i];
+ 
  //card images
  if (typeof cur_card != "undefined"){ //make sure card isn't undefined
    var img = document.createElement("img");
@@ -223,12 +200,11 @@ if (cards_picked <= pack_size-1){   //pass left
   //end draft
 }
 //Go to the next pick
-//document.getElementById("debug9").innerHTML = "pick made!";
 Print_collection();
 
 }</script>
 
-<!-- +1 is pass to left, -1 pass to right -->
+<!-- Pass cards to left or right (+1,-1) -->
 <script> function pass_cards(pass_amount){
   var tmp_packs=['1', '2', '3', '4', '5', '6', '7', '8']; //dummy initialization
   
@@ -250,7 +226,6 @@ Print_collection();
 <script> function bot_pick(bot_index){
  
  //output to screen 
- document.getElementById("debug8").innerHTML = bot_index;
  var pack_length=draft.players[bot_index].pack.pack_contents.length
  
  //determine the highest rated card
@@ -292,7 +267,6 @@ Print_collection();
   </ul>
 </li>
 
-
   <li>sealed</li>
   <li> methodology
     <ul>
@@ -310,25 +284,21 @@ Print_collection();
 <!-- <p><a href="https://www.pythonanywhere.com/gists/905201f664f09b8a3b11/code.py/ipython2/">Draft Simulator (python version)!</a></p> --->
 <!-- <p><button onclick= "Draft_DTK()" style="fontSize:xx-large;">Draft DTK-DTK-DTK</button>
 <button onclick= "Draft_ORI()" style="fontSize:xx-large;">Draft ORI-ORI-ORI</button> </p> -->
-<br>
-<ul>
+
+<!--new buttons to draft sets -->
+<br><p><ul>
 <li id="ORI_button" class="display" onclick="Draft_ORI()">ORI</li>
 <li id="DTK_button" class="display" onclick="Draft_DTK()">DTK</li>
-</ul>
+</ul></p>
 
-<p id="cur_pack" class="display"> </p>
+<p id="pack_images" class="display"> </p>
+<br>
+<p id="pack_text" class="display"> </p>
 <br>
 <p id="collection_img" class="display"> </p>
 <br>
-<p id="debug7" class="display"> </p>
-<p id="debug6" class="display"> </p>
-<p id="debug" class="display"> v154</p>
-<p id="debug2" class="display"> </p>
-<p id="debug3" class="display"> </p>
-<p id="debug4" class="display"> </p>
-<p id="debug5" class="display"> </p>
-<p id="debug8" class="display"> </p>
-<p id="debug9" class="display"> </p>
+
+<p> v155 </p>
 
 </body>
 </html>
