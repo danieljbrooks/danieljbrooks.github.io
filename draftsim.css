@@ -19,7 +19,7 @@ body {
 #pack_text_container
 {
    padding: 0px;
-   width:24%; /* or whatever width you want. */
+   /*width:24%;or whatever width you want. */
    float: left;
    border: 1px solid black;
 }
