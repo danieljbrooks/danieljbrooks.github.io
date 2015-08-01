@@ -21,8 +21,8 @@
 <body>
 
 <!-- Include DTK cardlist -->
-<script src="DTK_use.js"></script>
-<script src="ORI_use.js"></script>
+<script src="DTK.js"></script>
+<script src="ORI.js"></script>
 
 <!-- Clear the screen  -->
 <script> function clear_screen(){
@@ -122,40 +122,44 @@
 
 <script> function update_in_color(p_index){ 
   
-  var cur_player=draft.players[p_index];
-  
-  //sort the color_commit vector
-  var sorted_color_commit = [0,0,0,0,0]; // dummy init
-  
-  for (k=0; k<5;k++){
-    sorted_color_commit[k]=cur_player.color_commit[k];
-  }
-  sorted_color_commit.sort(function(a, b){return b-a});
-
-  //Determine number of colors
-  var num_colors=2;
-  if(sorted_color_commit[0]==0){
-    num_colors=0;
-  } else if (sorted_color_commit[1]==0) {
-    num_colors=1;
-  }
-
-  //reset color_commit vector
+  //reset in_color
   draft.players[p_index].in_color=[0,0,0,0,0];
-  
-  //get temporary color_commit values
-  temp_color_commit=[0,0,0,0,0];
-  for (i=0; i++;i<5){
-    temp_color_commit[i]=cur_player.color_commit[i];
+
+  //create temp_color_commit
+  var temp_color_commit=[0,0,0,0,0];
+  for (k=0;k<5;k++){
+    temp_in_color[k]=draft.players[p_index].color_commit[k];
   }
-
-  //update the in_color vector
-  for (i=0; i<num_colors;i++){
-    var max_index=temp_color_commit.indexOf(Math.max.apply(Math, temp_color_commit)) //gets max index
-    draft.players[p_index].in_color[max_index]=1;
-    temp_color_commit[max_index]=-100;
-  }  
-
+  
+  //find the maximum value
+  max_index=0;
+  max_value=temp_color_commit[0];
+  for(k=1;k<5;k++){
+    var cur_commit=temp_color_commit[k];
+    if (cur_commit>max_value){
+      max_index=k;
+      max_value=cur_commit;
+    }
+  }
+  if (max_value>0){
+    draft.players[p_index].in_color[max_index]=1;    //mark max as in_color
+    
+    temp_in_color[max_index]=-10;     //don't repeat the maximum value
+    
+    //find the second_max value
+    second_index=0;
+    second_value=temp_color_commit[0];
+    for(k=1;k<5;k++){
+      var cur_commit=temp_color_commit[k];
+      if (cur_commit>second_value){
+        second_index=k;
+        second_value=cur_commit;
+      }
+    }
+   if (second_value>0){
+     draft.players[p_index].in_color[second_index]=1; //mark second_max as in_color
+   } 
+  }
   return;
 }</script>
 
@@ -166,8 +170,6 @@
   //update which cards on are color
   update_in_color(player_i);
 
-  //return 0;
-   
   pack_length=draft.players[player_i].pack.pack_contents.length;
 
   //For each card in the pack
@@ -187,13 +189,6 @@
         off_color_amount+=this_card.colors[xx];
       }
     }  
-  
-    //add cur_color_bias to card
-    //if (player_i.collection!=null){
-    //  var draft_frac = player_i.collection.length / (3.0 * pack_size);
-    //} else {
-    //  var draft_frac=0;
-    //}    
 
     var draft_frac = draft.players[player_i].collection.length / (3.0 * pack_size);
     var time_bias = .2 + 1.3*draft_frac;
@@ -204,10 +199,6 @@
       //cur_bias=-1.0*time_bias*(off_color_amount-1);
       cur_bias=0;
     }
-
-    //print out the length of the player's collection
-    var debug_element = document.getElementById('debug');
-    debug_element.innerHTML=draft.players[0].in_color + "<br>" + draft.players[0].color_commit;
 
     this_card.color_bias=cur_bias;
   }  
@@ -221,6 +212,10 @@ return;
  
  //update the biases FIRST
  update_bias_pack(0); //update bias for just the player, add bots later
+
+  //print out the length of the player's collection
+  var debug_element = document.getElementById('debug');
+  debug_element.innerHTML=draft.players[0].in_color + "<br>" + draft.players[0].color_commit;
 
  //Clear images
  pack_length = draft.players[0].pack.pack_contents.length;
@@ -298,13 +293,10 @@ tablep.innerHTML=""; //clear the table
   return 0;
 } else {
   
-  //get the current card
-  var cur_card=draft.players[0].pack.pack_contents[card_index];
-  
   //update color commitment
   for (i = 0; i < 5; i++) { 
-    if(cur_card.colors[i]>0){
-      draft.players[0].color_commit[i]+=Math.max(0,cur_card.myrating-2.0);
+    if(draft.players[0].pack.pack_contents[card_index].colors[i]>0){
+      draft.players[0].color_commit[i]+=Math.max(0,draft.players[0].pack.pack_contents[card_index].myrating);
     }
   }
   
@@ -381,11 +373,15 @@ Print_collection();
  
   //get the picked card
   var picked_card=draft.players[bot_index].pack.pack_contents[best_index];
+  
 
+  var debug2 = document.getElementById("debug2");
+  debug2.innerHTML=""
   //update color commitment
   for (i = 0; i < 5; i++) { 
     if(picked_card.colors[i]>0){
       draft.players[bot_index].color_commit[i]+=Math.max(0,picked_card.myrating-2.0);
+      debug2.innerHTML=debug2.innerHTML+" / " + Math.max(0,picked_card.myrating-2.0);
     }
   }
 
@@ -442,6 +438,7 @@ Print_collection();
 </div>
 <br>
 <p id="debug"> This is the debug box </p>
+<p id="debug2"> This is the debug2 box </p>
 <br>
 <div id="collection_container" class="display">
   <p id="collection_img" class="display"> </p>
