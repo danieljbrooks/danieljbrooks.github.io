@@ -125,7 +125,11 @@
   var cur_player=draft.players[p_index];
   
   //sort the color_commit vector
-  var sorted_color_commit=cur_player.color_commit;
+  var sorted_color_commit = [0,0,0,0,0]; // dummy init
+  
+  for (k=0; k<5;k++){
+    sorted_color_commit[k]=cur_player.color_commit[k];
+  }
   sorted_color_commit.sort(function(a, b){return b-a});
 
   //Determine number of colors
@@ -158,8 +162,13 @@
 
 <!-- always call this function before using this value -->
 <script> function update_bias_pack(player_i){
+
   //update which cards on are color
   update_in_color(player_i);
+
+  //return 0;
+   
+  pack_length=draft.players[player_i].pack.pack_contents.length;
 
   //For each card in the pack
   for (i = 0; i < pack_length; i++) {
@@ -167,32 +176,38 @@
     var this_card=draft.players[player_i].pack.pack_contents[i];
 
     //get card's CMC (do this from python script
-    var cmc = this_card.cmc;
+    //var cmc = this_card.cmc;
   
     //check if card is on color
     var on_color_card=1;
     var off_color_amount=0;
-    for (i=0;i<5;i++){
-      if(this_card.colors[i] > 0 && draft.players[player_i].in_color[i]==0){
+    for (xx=0; xx<5;xx++){
+      if(this_card.colors[xx] > 0 && draft.players[player_i].in_color[xx]==0){
         on_color_card=0;
-        off_color_amount+=this_card.colors[i];
+        off_color_amount+=this_card.colors[xx];
       }
     }  
   
     //add cur_color_bias to card
-    if (player_i.collection!=null){
-      var draft_frac = player_i.collection.length / (3.0 * pack_size);
-    } else {
-      var draft_frac=0;
-    }    
+    //if (player_i.collection!=null){
+    //  var draft_frac = player_i.collection.length / (3.0 * pack_size);
+    //} else {
+    //  var draft_frac=0;
+    //}    
 
+    var draft_frac = draft.players[player_i].collection.length / (3.0 * pack_size);
     var time_bias = .2 + 1.3*draft_frac;
 
     if(on_color_card){
       cur_bias=time_bias;
     } else {
-      cur_bias=-1.0*time_bias*(off_color_amount-1);
+      //cur_bias=-1.0*time_bias*(off_color_amount-1);
+      cur_bias=0;
     }
+
+    //print out the length of the player's collection
+    var debug_element = document.getElementById('debug');
+    debug_element.innerHTML=draft.players[0].in_color + "<br>" + draft.players[0].color_commit;
 
     this_card.color_bias=cur_bias;
   }  
@@ -204,6 +219,9 @@ return;
 
 <script> function Print_collection(){
  
+ //update the biases FIRST
+ update_bias_pack(0); //update bias for just the player, add bots later
+
  //Clear images
  pack_length = draft.players[0].pack.pack_contents.length;
  document.getElementById("pack_images").innerHTML = "";
@@ -214,19 +232,6 @@ return;
    var extra_html = "<img src=" + draft.players[0].pack.pack_contents[i].image +  " id=card_" + i + " onclick=make_pick(" + i + ") />";
    document.getElementById("pack_images").innerHTML = cur_html + extra_html;
  }
- 
- /*
- //display information in table
- var div = document.getElementById("pack_text");
- div.innerHTML = "<table> <tr><th>Name</th>";
- div.innerHTML.append("<th>Rating</th>");
- div.innerHTML.append("<th>Color Bias</th></tr>");
- for (i = 0; i < pack_length; i++) {
-  var cur_card = draft.players[0].pack.pack_contents[i];
-  div.innerHTML.append("<tr><th>" + cur_card.name + "</th><th>" + cur_card.myrating + "</th><th>" + cur_card.cur_bias " </th></tr>");
- }
- div.innerHTML.append("</table>");
-*/
 
 // Find a <table> element with id="myTable":
 var tablep = document.getElementById("pack_text");
@@ -237,13 +242,18 @@ tablep.innerHTML=""; //clear the table
    var row = tablep.insertRow(i);
    var cell1 = row.insertCell(0);
    var cell2 = row.insertCell(1);
-   
+   var cell3 = row.insertCell(2);   
+
    // Add some text to the new cells:
    var cur_card = draft.players[0].pack.pack_contents[i];
    cell1.innerHTML = cur_card.name;
-   //cell1.onclick = clear_screen(); //is this correct?
    cell2.innerHTML = cur_card.myrating;
-   //cell2.onclick = clear_screen();
+   if (cur_card.hasOwnProperty('color_bias')){
+     cell3.innerHTML = cur_card.color_bias.toFixed(1);
+    } else {
+     cell3.innerHTML="none";
+    }
+
  }
   // var cur_html = document.getElementById("pack_images").innerHTML;
   // var extra_html = "<img src=" + draft.players[0].pack.pack_contents[i].image +  " id=card_" + i + " onclick=make_pick(" + i + ") />";
@@ -257,8 +267,10 @@ tablep.innerHTML=""; //clear the table
  // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
  var head1 = row.insertCell(0);
  var head2 = row.insertCell(1);
+ var head3 = row.insertCell(2)
  head1.innerHTML = "Name";
  head2.innerHTML = "Rating";
+ head3.innerHTML = "Color Bias";
 
 //just set the table to peas and stuff
 //div.innerHTML="<table><tr><th>One</th><th>Two</th></tr><tr><td>Apples</td><td>Carrots</td></tr><tr><td>Oranges</td><td>Potato</td></tr><tr><td>Pears</td><td>Peas</td></tr></table>";
@@ -328,7 +340,6 @@ if (cards_picked <= pack_size-1){   //pass left
 }
 
 //Go to the next pick
-update_bias_pack(0); //update bias for just the player, add bots later
 Print_collection();
 
 }}</script>
@@ -429,7 +440,8 @@ Print_collection();
   <table id="pack_text" class="display">
   </table>
 </div>
-
+<br>
+<p id="debug"> This is the debug box </p>
 <br>
 <div id="collection_container" class="display">
   <p id="collection_img" class="display"> </p>
