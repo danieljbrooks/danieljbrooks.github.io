@@ -2,6 +2,6 @@
 DirectoryIndex about.html
 
 #Error path
-ErrorDocument 404 http://danieljbrooks.com/about.html
+#ErrorDocument 404 http://danieljbrooks.com/about.html
 
 
