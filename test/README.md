@@ -1,3 +1,5 @@
+## Content
+
 This is my personal and professional website, which can be found at http://danieljbrooks.com.
 
 ## Acknowledgement
