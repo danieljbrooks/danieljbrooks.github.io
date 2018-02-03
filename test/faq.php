@@ -21,7 +21,7 @@
   <body>
 
     <!-- Navigation bar -->
-    <?php include '/include/nav.php'; ?>
+    <?php include 'include/nav.php'; ?>
 
     <!-- Page Content -->
     <div class="container">
