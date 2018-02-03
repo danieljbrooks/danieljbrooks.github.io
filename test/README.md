@@ -1,4 +1,4 @@
-## Content
+## Professional website - Daniel J. Brooks
 
 This is my personal and professional website, built with the Bootstrap "Modern Business" template and hosted with Github Pages. Check it out here: http://danieljbrooks.com.
 
