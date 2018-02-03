@@ -1,6 +1,8 @@
+This is my personal and professional website, which can be found at danieljbrooks.com.
+
 ## Acknowledgement
 
-This website, danieljbrooks.com, was built using the Bootstrap "Modern Business" template.
+This website was built using the Bootstrap "Modern Business" template.
 
 ## Copyright and License
 
