@@ -1,6 +1,6 @@
 ## Acknowledgement
 
-This website, danieljbrooks.com was built using the Bootstrap Modern Business template.
+This website, danieljbrooks.com, was built using the Bootstrap "Modern Business" template.
 
 ## Status
 
