@@ -1,5 +1,0 @@
-#Alternate default index
-DirectoryIndex about.html
-
-#Error path
-ErrorDocument 404 http://danieljbrooks.github.io/about.html
