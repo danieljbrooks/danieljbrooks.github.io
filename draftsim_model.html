@@ -68,16 +68,19 @@
           -->
 
           <!-- Post Content -->
-	  <br><br>
+a	  <br><br>
           
 	  <p>Draft simulators are widely used training tools in the Magic: the Gathering community. Many other draft
 	  simulators have limited functionality. I built a fully featured draft simulator with smart computer
-	  opponents, pick suggestions, and automatic deckbuilding. The <a href="http://draftsim.com">tool</a> was quickly adopted by the community and eventually sold.</p>
+	  opponents, pick suggestions, and automatic deckbuilding. The <a href="http://draftsim.com">tool</a> was quickly
+	  adopted by the community and is currently the leading free tool for preparing for Magic: the Gathering drafts.</p>
           
-	  <p>The Draftsim model maximizes the quality of cards within a two color pair. Each card has a base rating 
+	  <p>The Draftsim model is designed to mimic the behavior of professional players and
+	  maximizes the quality of cards within a two color pair. Each card has a base rating 
 	  and a color bonus, which scales up as more cards of that color are picked. Recommended picks are shown in
 	  a table on the site, computer opponents always make the most recommended pick. Decks are automatically 
-	  constructed by identifying the two colors with the most good cards and playing the highest rated cards in those colors.</p>
+	  constructed by identifying the two colors with the best cards and playing the highest rated
+	  cards in those colors.</p>
 	 
         <!-- Blog Post -->
         <div class="card mb-4">
@@ -87,11 +90,30 @@
           </div>
         </div>
 
+	  <p>The valuation of cards is a sum of two components, a <i>base rating</i>, intrinsic
+	  to the card, and a <i>color bias</i>, which provides an incentive two draft cards from
+	  a two-color pair. The base ratings for each set can largely be derived from pick order 
+	  <a href="https://www.channelfireball.com/articles/a-pick-order-list-for-magic-origins/"
+          target="_blank">lists</a>, although some fine tuning can be done based on trends in 
+          professional draft 
+	  <a href="gatherer.wizards.com/magic/draftools/draftviewer.asp?draftid=7_31_2015_1"
+          target="_blank">viewers</a>, community articles, or experience on the simulator. Generally
+          speaking consistent cards like creatures and removal spells should be rated slightly higher
+	  and situational cards like combat tricks should be rated slightly lower than the 
+	  professional pick order list to ensure the construction of functional decks.</p>
 
-	  <p>In the future, there is an interest in considering additional factors such as curve and synergy.
-          To train these parameters, draft logs from official online MTGO tournaments could be collected, cleaned, and used to train the updated model
-          This would allow for a more refined drafting model and could be useful for community members who wish to practice against a variety of strategies.</p>
-          
+	  <p>To identify two open colors to play, the drafting process is broken down into two
+	  stages - the <b>speculation</b> phase where the model searches for two open colors and the
+	  <b>committed</b>phase where the model prioritizes cards of those colors.</p>
+
+	  <p>Work is currently underway to consider the effect of additional factors such as curve and 
+	  synergy. To train these parameters, drafting data will be collected from users on the site and
+	  from user uploaded drafts played on the official Magic Online
+	  <a href="http://magic.wizards.com/en/content/magic-online-products-game-info" target="_blank">
+	  client</a>. This data can be used to train more sophisticated drafting models, allow users to
+          play against a variety of opponents, and provide insights into the drafting stratgies employed
+	  by a wide range of users.</p>
+
 	  <hr>
               
           <!-- Button for Projects and Blog -->
