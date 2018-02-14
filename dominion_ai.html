@@ -72,13 +72,15 @@
 	  now able to defeat some of the strongest human players. Relatively little work has been done on more modern games, which frequently 
 	  feature the release of additional content and hidden information. Following the approach of the draftsim model, this problem can be approached by
 	  making "easy" decisions with a rules based model and answering the "hard" questions with learning methods.</p>
-	  
-          <p>An application of this approach to Dominion, a popular and pioneering deckbuilding game released by Donald X. Vaccarino
-	  in 2008. The game revolves around building a deck containing action and treasure cards, which do useful things, and victory 
+	 
+          <p>An application of this approach is applied to 
+	  <a href="https://en.wikipedia.org/wiki/Dominion_(card_game)" target="_blank">Dominion</a>, a popular and pioneering deckbuilding
+	  game released by Donald X. Vaccarino. The game revolves
+	  around building a deck containing action and treasure cards, which do useful things, and victory 
 	  cards, which score points at the end of the game. A number of dominion simulators have been developed, however, these tools
 	  focus primarily on simple money strategies as opposed to the complex engine decks with flourish at higher levels of play. 
-	  To prepare for this project, I studied high level dominion play, eventually reaching rank #1 and winning the Dominion Online 
-	  <a href="https://www.youtube.com/watch?v=deuJLiFhEFM#t=3h54m7s" target="_blank"> Championship</a>.</p>
+	  To prepare for this project, I studied high level dominion play, eventually reaching rank #1 and winning the 
+	  <a href="https://www.youtube.com/watch?v=deuJLiFhEFM#t=3h54m7s" target="_blank">Dominion Online Championship</a>.</p>
 
           <p>I am currently working with a team of five Caltech graduate students on building more sophisticated AI for
 	  dominion. An example of the interface for human-bot games is shown below:</p>
@@ -88,20 +90,31 @@
             <img class="card-img-top" src="images/dominion_gui.jpg" alt="Player-bot interface for dominion">
             <div class="card-body">
               <p class="card-text">Dominion interface for human-bot games implemented using the pygame python package.</p>
-            </div>
           </div>
 
-          <p>Pygames implementation and bots.</p>
+          <p>A number of bots have been implemented in the pygame framework:</p>
 	  <ul>
-            <li> Random bot - makes all decisions randomly </li>
-	    <li> Treasure bot - buys only basic treasure </li>
-	    <li> Big money bot - buys basic actions and treasures </li>
-	    <li> Village bot (in progress) - plays multi-component engines </li>
+            <li>Random bot - baseline, makes all decisions randomly</li>
+	    <li>Treasure bot - buys only basic treasure and victory cards</li>
+	    <li>Big money bot - buys basic actions and treasures, empirically parameters</li>
+	    <li>Village bot (in progress) - plays complex, multi-component engines</li>
 	  </ul>
 
-          <p></p>
+	  <p>When purchasing cards, village bot seeks to maximize
+	  payload, defined as a function of coins, buys, cards gained,
+	  attacks played, cards trashed, and VP gained. The value of trashing junk cards increases early 
+	  in the game, and the value of VP gaining is increased later in the game, as opponents begin 
+	  to threaten to end the game. To simplify the payload computation, the
+	  <a href="https://en.wikipedia.org/wiki/Mean_field_theory" target="_blank">mean field approximation</a> 
+	  is made to describe the distribution of additional +Cards, +Actions, and payload within a deck.</p>
 
-	  <p>As work continues it will be interesting to see which techiques and which bots perform the best.</p>
+	  <p>Decisions on how to play action cards are handled with a simple set of heuristics. The groundwork has 
+	  been laid to determine the impact of individual buy and play decisions using 
+	  <a href="https://en.wikipedia.org/wiki/Monte_Carlo_tree_search" target="_blank">Monte Carlo tree search</a> and 
+	  to examine the effect of overall model parameters on winrate using 
+	  <a href="https://en.wikipedia.org/wiki/Genetic_algorithm" target="_blank">genetic algorithms</a>. As work continues,
+	  it will be interesting to explore the range of effectiveness of rules-based and learning methods 
+	  for dominion and to find the combination of methods best suited for practical application.</p>
 
           <hr>
       
@@ -109,7 +122,7 @@
          <div class="input-group">
             <span class="input-group-btn" style="margin-left:auto; margin-right: auto;">
               <a href="blog.html">
-                <button class="btn btn-secondary" type="button">Return to Blog</button>1
+                <button class="btn btn-secondary" type="button">Return to Bmolog</button>
               </a>                                                            
             </span>
           </div>
