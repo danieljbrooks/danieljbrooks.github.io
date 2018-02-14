@@ -105,11 +105,24 @@
 	  <p>To identify two open colors to play, the drafting process is broken down into two
 	  stages - the <i>speculation</i> stage and the <i>committed</i> stage.</p>
           
-	  <p>During the <i>speculation</i> stage, the model searches for two open colors to play.</p>
+	  <p>During the <i>speculation</i> stage, the model searches for two open colors to play.
+	  When a player picks a card, that player's <i>commitment</i> to the card's colors is increased
+	  by <i>card rating - baseline</i>, where <i>baseline</i>=2.0. 
+	  Thus, a replacement level card with <i>card rating</i>=2.0
+	  won't draw the model into new colors, but a bomb rare with <i>card rating</i>=5.0 will.</p>
+
+	  <p>test
+	  
+	  </p>
           
 	  <p>During the <i>committed</i> stage, the model priotizes cards in a two color pair.</p>
 
-	  <p>To construct decks ... </p>
+	  <p>The draftsim model is then used to automatically construct decks for the user and the computer
+	  opponents. First, the strongest color pair is identified as the two colors with the highest
+	  <i>color commit</i>. The
+	  highest rated on-color cards are added to the deck until there are 23 nonland cards. A total of 17
+	  lands are then added to the deck, split as evenly as possible and favoring the color with the 
+	  greater <i>color commit</i> in the case of a 9-8 split.</p>
 
 	  <p>Work is currently underway to consider the effect of additional factors such as curve and 
 	  synergy. To train these parameters, drafting data will be collected from users on the site and
