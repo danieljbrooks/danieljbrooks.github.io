@@ -74,8 +74,7 @@
 	  simulators have somewhat limited features, so I designed and built a draft
 	  simulator with smart computer opponents, pick suggestions, and automatic deckbuilding. 
 	  This simulator, <a href="http://draftsim.com" target="_blank">draftsim</a>, was quickly
-	  adopted by the community and is currently the leading free tool for preparing for 
-	  Magic: the Gathering drafts.</p>
+	  adopted by the community and is currently the leading free tool for draft preparation.</p>
          
           <div class="card mb-4">
 	    <img class="card-img-top" src="images/draftsim_community2.jpg" alt="Draftsim community impact">
@@ -89,13 +88,13 @@
 	  cards in those colors.</p>
 
 	  <p>The valuation of cards is a sum of two components, a <i>base rating</i>, intrinsic
-	  to the card, and a <i>color bonus</i>, which provides an incentive two draft cards from
-	  a two-color pair. The base ratings for each set can largely be derived from pick order 
+	  to the card, and a <i>color bonus</i>, which provides an incentive to draft cards from
+	  a two color pair. The base ratings for each set can largely be derived from  
 	  <a href="https://www.channelfireball.com/articles/a-pick-order-list-for-magic-origins/"
-          target="_blank">lists</a>, although some fine tuning can be done based on trends in 
-          professional draft 
+          target="_blank">pick order lists</a>, although some fine tuning can be done based on trends in 
+          professional 
 	  <a href="http://gatherer.wizards.com/magic/draftools/draftviewer.asp?draftid=7_31_2015_1"
-          target="_blank">viewers</a>, community articles, or experience on the simulator. Generally
+          target="_blank">draft viewers</a>, community articles, or experience on the simulator. Generally
           speaking consistent cards like creatures and removal spells should be rated slightly higher
 	  and situational cards like combat tricks should be rated slightly lower than the 
 	  professional pick order list to ensure the construction of functional decks.</p>
@@ -105,7 +104,7 @@
 	    value of cards and how they fit into a two color deck.">
 	  </div>
 
-	  <p>To identify two open colors to play, the drafting process is broken down into two
+	  <p>The drafting process is broken down into two
 	  stages - the <i>speculation</i> stage and the <i>committed</i> stage.</p>
           
 	  <p>During the <i>speculation</i> stage, the model searches for two open colors to play.
@@ -115,7 +114,7 @@
 	  won't draw the model into new colors, but a bomb rare with <i>rating</i>=5.0 will.</p>
 
 	  <p>As a player's <i>commitment</i> to a color grows from 0 to <i>threshold</i>=3.5, the
-	  <i>color bonus</i> for cards of that color grows linearly from 0 to <i>max bonus</i>=+0.9, before
+	  <i>color bonus</i> for cards of that color grows linearly from 0 to <i>max bonus</i>=+0.9 before
 	  capping off. At that point, the player is considered <i>committed</i> to that color. To help find
 	  a second color, the bonus of the color with second highest <i>commitment</i> is increased to 
 	  0.8 * <i>max bonus</i>. When the player is either <i>committed</i> to two or more colors or the
@@ -128,12 +127,13 @@
 	  the first.</p>
           
           <p>The above description holds for single-colored cards. Colorless cards are given a bonus equal
-	  to the largest bonus available to single-colored cards. During the <i>committed stage</i>, multicolored 
+	  to the largest bonus available to single-colored cards.</p>
+	  <p>Multicolored cards are handled differently. During the <i>committed stage</i>, multicolored 
 	  cards with 2-3 colors are either given an <i>on color bonus</i>=+2.0 or 
 	  the <i>off color penalty</i> described 
 	  above. During the <i>speculation stage</i>, these multicolored cards are assigned a bonus equal to the
 	  sum of <i>color bonuses</i> in the card's colors, minus the sum of <i>color bonuses</i> outside of 
-	  the card's colors, and minus a <i>multicolored penalty</i>=0.6. 
+	  the card's colors, and minus a <i>multicolored penalty</i>=-0.6. 
 	  Multi-colored cards with 4-5 colors will not
 	  be played by the model and are assigned no bonuses or penalities.</p>
 
