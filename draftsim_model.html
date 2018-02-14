@@ -71,8 +71,10 @@
           
 	  <p>Draft simulators are widely used training tools in the Magic: the Gathering community. Many other draft
 	  simulators have limited functionality. I built a fully featured draft simulator with smart computer
-	  opponents, pick suggestions, and automatic deckbuilding. <a href="http://draftsim.com">Draftsim</a> was quickly
-	  adopted by the community and is currently the leading free tool for preparing for Magic: the Gathering drafts.</p>
+	  opponents, pick suggestions, and automatic deckbuilding. 
+	  <a href="http://draftsim.com" target="_blank">Draftsim</a> was quickly
+	  adopted by the community and is currently the leading free tool for preparing for 
+	  <a href="https://magic.wizards.com/en" target="_blank">Magic: the Gathering</a> drafts.</p>
          
           <div class="card mb-4">
 	    <img class="card-img-top" src="images/draftsim_community2.jpg" alt="Draftsim community impact">
@@ -107,15 +109,32 @@
           
 	  <p>During the <i>speculation</i> stage, the model searches for two open colors to play.
 	  When a player picks a card, that player's <i>commitment</i> to the card's colors is increased
-	  by <i>card rating - baseline</i>, where <i>baseline</i>=2.0. 
-	  Thus, a replacement level card with <i>card rating</i>=2.0
-	  won't draw the model into new colors, but a bomb rare with <i>card rating</i>=5.0 will.</p>
+	  by (<i>rating - baseline</i>), where <i>baseline</i>=2.0. 
+	  Thus, a replacement level card with <i>rating</i>=2.0
+	  won't draw the model into new colors, but a bomb rare with <i>rating</i>=5.0 will.</p>
 
-	  <p>test
-	  
-	  </p>
+	  <p>As a player's <i>commitment</i> to a color grows from 0 to <i>threshold</i>=3.5, the
+	  <i>color bonus</i> for cards of that color grows linearly from 0 to <i>max bonus</i>=+0.9, before
+	  capping off. At that point, the player is considered <i>committed</i> to that color. To help find
+	  a second color, the bonus of the color with second highest <i>commitment</i> is increased to 
+	  0.8 * <i>max bonus</i>. When the player is either <i>committed</i> to two or more colors or the
+	  draft has progressed the fourth pick of the second pack,
+	  the model enters the <i>committed stage</i>.</p>
           
-	  <p>During the <i>committed</i> stage, the model priotizes cards in a two color pair.</p>
+	  <p>During the <i>committed stage</i>, the model priotizes cards in the two color pair that the
+	  player is most <i>committed</i> to. These cards are given a large <i>on color bonus</i>=+2.0. Off 
+	  color cards are assigned an <i>off color</i> penalty of -1 for each off color mana symbol beyond 
+	  the first.</p>
+          
+          <p>The above description holds for single-colored cards. Colorless cards are given a bonus equal
+	  to the largest bonus available to single-colored cards. During the <i>committed stage</i>, multicolored 
+	  cards with 2-3 colors are either given an <i>on color bonus</i>=+2.0 or 
+	  the <i>off color penalty</i> described 
+	  above. During the <i>speculation stage</i>, these multicolored cards are assigned a bonus equal to the
+	  sum of <i>color bonuses</i> in the card's colors, minus the sum of <i>color bonuses</i> outside of 
+	  the card's colors, and minus a <i>multicolored penalty</i>=0.6. 
+	  Multi-colored cards with 4-5 colors will not
+	  be played by the model and are assigned no bonuses or penalities.</p>
 
 	  <p>The draftsim model is then used to automatically construct decks for the user and the computer
 	  opponents. First, the strongest color pair is identified as the two colors with the highest
