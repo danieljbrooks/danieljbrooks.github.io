@@ -1,12 +1,8 @@
-## Personal and Professional Website - danieljbrooks.com
+## Danieljbrooks.com
 
 This is my personal and professional website, built using Bootstrap and hosted with Github Pages. 
 
-The site describes my:
-Research interests
-Projects
-Blog
-Contact information. 
+The site describes my research interests, projects, blog, and contact information. 
 
 Check it out here: http://danieljbrooks.com.
 
