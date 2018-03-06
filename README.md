@@ -1,6 +1,10 @@
-## Homepage - Daniel J. Brooks
+## Personal and Professional Website - danieljbrooks.com
 
-This is my personal and professional website, built with the Bootstrap "Modern Business" template and hosted with Github Pages. Check it out here: http://danieljbrooks.com.
+This is my personal and professional website, built using Bootstrap and hosted with Github Pages. 
+
+The site describes my research interests, projects, blog, and contact information. 
+
+Check it out here: http://danieljbrooks.com.
 
 ## Copyright and License
 
