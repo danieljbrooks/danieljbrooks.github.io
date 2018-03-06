@@ -6,4 +6,4 @@ The site describes my research interests, projects, blog, and contact informatio
 
 ## Usage
 
-Check out the live site here: http://danieljbrooks.com.
+Check out the live site: http://danieljbrooks.com.
