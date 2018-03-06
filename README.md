@@ -7,7 +7,3 @@ The site describes my research interests, projects, blog, and contact informatio
 ## Usage
 
 Check out the live site here: http://danieljbrooks.com.
-
-## Copyright and License
-
-Copyright 2013-2018 Blackrock Digital LLC. Code released under the [MIT](https://github.com/BlackrockDigital/startbootstrap-modern-business/blob/gh-pages/LICENSE) license.
