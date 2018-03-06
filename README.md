@@ -4,9 +4,9 @@ This is my personal and professional website, built using Bootstrap and hosted w
 
 The site describes my research interests, projects, blog, and contact information. 
 
-## Live webpage
+## Usage
 
-Check it out here: http://danieljbrooks.com.
+Check out the live site here: http://danieljbrooks.com.
 
 ## Copyright and License
 
