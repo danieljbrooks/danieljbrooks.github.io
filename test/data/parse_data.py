@@ -52,7 +52,7 @@ def get_group(char):
 	else:
 		return 8
 
-def create_json(dist, scale, json_path, cutoff=0.7):
+def create_json(dist, scale, json_path, cutoff=0.8):
 	"""
 	Creates a .json file for graph visualization named json_path.
 	"""
